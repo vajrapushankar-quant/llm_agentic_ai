@@ -1848,7 +1848,7 @@ function EnrollmentModal({ isOpen, onClose, planId, planName }) {
         email: "",
         phone: ""
     });
-    const [selectedGateway, setSelectedGateway] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [selectedGateway, setSelectedGateway] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("razorpay");
     const [isSubmitting, setIsSubmitting] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     // Reset step when modal opens/closes
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
@@ -1879,7 +1879,7 @@ function EnrollmentModal({ isOpen, onClose, planId, planName }) {
                 planId: planId,
                 planName: planName,
                 planPrice: planDetails?.price || "",
-                paymentGateway: selectedGateway || "pending"
+                paymentGateway: "razorpay"
             };
             // Submit to Google Sheets
             if ("TURBOPACK compile-time truthy", 1) {
@@ -1905,33 +1905,42 @@ function EnrollmentModal({ isOpen, onClose, planId, planName }) {
         setStep("payment");
     };
     const handlePayment = async ()=>{
-        if (!selectedGateway) return;
         setIsSubmitting(true);
-        // Submit to Google Sheets before redirecting
-        await submitToGoogleSheets();
-        // Store customer data in localStorage for reference
-        localStorage.setItem('customerData', JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            planId: planId,
-            planName: planName
-        }));
-        const gatewayMap = {
-            "1-payu": "https://u.payu.in/PAYUMN/gr5iJQ89Gmfr",
-            "1-razorpay": "https://rzp.io/rzp/9pdi1nf0",
-            "2-payu": "https://u.payu.in/PAYUMN/fr06Qcu6GCdq",
-            "2-razorpay": "https://rzp.io/rzp/phPf6vVd",
-            "3-payu": "https://u.payu.in/PAYUMN/DIGb3CjFwWc5",
-            "3-razorpay": "https://rzp.io/rzp/sL69Bhu"
-        };
-        const paymentKey = `${planId}-${selectedGateway}`;
-        const paymentUrl = gatewayMap[paymentKey] || "#";
-        setIsSubmitting(false);
-        // Redirect to payment gateway
-        // Note: Static payment links don't support URL parameters for pre-filling
-        // Users will need to manually enter their details on the payment gateway page
-        window.location.href = paymentUrl;
+        try {
+            // Submit to Google Sheets before redirecting
+            await submitToGoogleSheets();
+            // Store customer data in localStorage for reference
+            localStorage.setItem('customerData', JSON.stringify({
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+                planId: planId,
+                planName: planName
+            }));
+            const gatewayMap = {
+                "1-razorpay": "https://rzp.io/rzp/DXdIObc",
+                "2-razorpay": "https://rzp.io/rzp/rEJZDsc",
+                "3-razorpay": "https://rzp.io/rzp/kvOudgi" // Bundle
+            };
+            const paymentKey = `${planId}-razorpay`;
+            const paymentUrl = gatewayMap[paymentKey];
+            if (!paymentUrl) {
+                console.error('Payment URL not found for plan:', planId);
+                setIsSubmitting(false);
+                return;
+            }
+            // Add customer data as URL parameters for Razorpay
+            const urlWithParams = new URL(paymentUrl);
+            urlWithParams.searchParams.set('prefill[name]', formData.name);
+            urlWithParams.searchParams.set('prefill[email]', formData.email);
+            urlWithParams.searchParams.set('prefill[contact]', formData.phone);
+            console.log('Redirecting to:', urlWithParams.toString());
+            // Redirect to Razorpay with pre-filled customer data
+            window.location.href = urlWithParams.toString();
+        } catch (error) {
+            console.error('Error in handlePayment:', error);
+            setIsSubmitting(false);
+        }
     };
     if (!isOpen) return null;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1949,7 +1958,7 @@ function EnrollmentModal({ isOpen, onClose, planId, planName }) {
                                 children: step === "form" ? "Enroll Now" : "Choose Payment Gateway"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/PricingSection.tsx",
-                                lineNumber: 261,
+                                lineNumber: 271,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1958,13 +1967,13 @@ function EnrollmentModal({ isOpen, onClose, planId, planName }) {
                                 children: "×"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/PricingSection.tsx",
-                                lineNumber: 264,
+                                lineNumber: 274,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/PricingSection.tsx",
-                        lineNumber: 260,
+                        lineNumber: 270,
                         columnNumber: 11
                     }, this),
                     step === "form" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -1980,7 +1989,7 @@ function EnrollmentModal({ isOpen, onClose, planId, planName }) {
                                             children: "💡 Recommendation:"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/PricingSection.tsx",
-                                            lineNumber: 278,
+                                            lineNumber: 288,
                                             columnNumber: 21
                                         }, this),
                                         " Want to start with LLM Foundations?",
@@ -2003,18 +2012,18 @@ function EnrollmentModal({ isOpen, onClose, planId, planName }) {
                                             children: "Switch to Bundle for best value"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/PricingSection.tsx",
-                                            lineNumber: 279,
+                                            lineNumber: 289,
                                             columnNumber: 21
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/components/PricingSection.tsx",
-                                    lineNumber: 277,
+                                    lineNumber: 287,
                                     columnNumber: 19
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/components/PricingSection.tsx",
-                                lineNumber: 276,
+                                lineNumber: 286,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2024,7 +2033,7 @@ function EnrollmentModal({ isOpen, onClose, planId, planName }) {
                                         children: "Full Name *"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/PricingSection.tsx",
-                                        lineNumber: 297,
+                                        lineNumber: 307,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2039,13 +2048,13 @@ function EnrollmentModal({ isOpen, onClose, planId, planName }) {
                                         placeholder: "Enter your full name"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/PricingSection.tsx",
-                                        lineNumber: 300,
+                                        lineNumber: 310,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/PricingSection.tsx",
-                                lineNumber: 296,
+                                lineNumber: 306,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2055,7 +2064,7 @@ function EnrollmentModal({ isOpen, onClose, planId, planName }) {
                                         children: "Email *"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/PricingSection.tsx",
-                                        lineNumber: 311,
+                                        lineNumber: 321,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2070,13 +2079,13 @@ function EnrollmentModal({ isOpen, onClose, planId, planName }) {
                                         placeholder: "Enter your email"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/PricingSection.tsx",
-                                        lineNumber: 314,
+                                        lineNumber: 324,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/PricingSection.tsx",
-                                lineNumber: 310,
+                                lineNumber: 320,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2086,7 +2095,7 @@ function EnrollmentModal({ isOpen, onClose, planId, planName }) {
                                         children: "Phone Number *"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/PricingSection.tsx",
-                                        lineNumber: 325,
+                                        lineNumber: 335,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2101,13 +2110,13 @@ function EnrollmentModal({ isOpen, onClose, planId, planName }) {
                                         placeholder: "Enter your phone number"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/PricingSection.tsx",
-                                        lineNumber: 328,
+                                        lineNumber: 338,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/PricingSection.tsx",
-                                lineNumber: 324,
+                                lineNumber: 334,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2117,61 +2126,34 @@ function EnrollmentModal({ isOpen, onClose, planId, planName }) {
                                 children: isSubmitting ? "Submitting..." : "Continue to Payment"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/PricingSection.tsx",
-                                lineNumber: 338,
+                                lineNumber: 348,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/PricingSection.tsx",
-                        lineNumber: 273,
+                        lineNumber: 283,
                         columnNumber: 13
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "space-y-4",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "text-gray-700 mb-6",
-                                children: "Please select your preferred payment gateway:"
+                                children: "You will be redirected to our secure payment gateway:"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/PricingSection.tsx",
-                                lineNumber: 348,
+                                lineNumber: 358,
                                 columnNumber: 15
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                onClick: ()=>setSelectedGateway("payu"),
-                                className: `w-full p-4 border-2 rounded-lg text-left transition-all ${selectedGateway === "payu" ? "border-gray-900 bg-gray-50" : "border-gray-300 hover:border-gray-400"}`,
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "font-semibold text-gray-900",
-                                        children: "PayU"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/components/PricingSection.tsx",
-                                        lineNumber: 360,
-                                        columnNumber: 17
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "text-sm text-gray-600",
-                                        children: "Secure payment via PayU"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/components/PricingSection.tsx",
-                                        lineNumber: 361,
-                                        columnNumber: 17
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/app/components/PricingSection.tsx",
-                                lineNumber: 352,
-                                columnNumber: 15
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                onClick: ()=>setSelectedGateway("razorpay"),
-                                className: `w-full p-4 border-2 rounded-lg text-left transition-all ${selectedGateway === "razorpay" ? "border-gray-900 bg-gray-50" : "border-gray-300 hover:border-gray-400"}`,
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "w-full p-4 border-2 border-gray-900 bg-gray-50 rounded-lg",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "font-semibold text-gray-900",
                                         children: "Razorpay"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/PricingSection.tsx",
-                                        lineNumber: 372,
+                                        lineNumber: 363,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2179,13 +2161,21 @@ function EnrollmentModal({ isOpen, onClose, planId, planName }) {
                                         children: "Secure payment via Razorpay"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/PricingSection.tsx",
-                                        lineNumber: 373,
+                                        lineNumber: 364,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "text-xs text-green-600 mt-1",
+                                        children: "✓ Your details will be pre-filled"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/components/PricingSection.tsx",
+                                        lineNumber: 365,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/PricingSection.tsx",
-                                lineNumber: 364,
+                                lineNumber: 362,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2197,45 +2187,48 @@ function EnrollmentModal({ isOpen, onClose, planId, planName }) {
                                         children: "Back"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/PricingSection.tsx",
-                                        lineNumber: 377,
+                                        lineNumber: 369,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                        onClick: handlePayment,
-                                        disabled: !selectedGateway || isSubmitting,
+                                        onClick: ()=>{
+                                            console.log('Payment button clicked');
+                                            handlePayment();
+                                        },
+                                        disabled: isSubmitting,
                                         className: "flex-1 bg-gray-900 text-white px-4 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
                                         children: isSubmitting ? "Submitting..." : "Proceed to Payment"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/PricingSection.tsx",
-                                        lineNumber: 383,
+                                        lineNumber: 375,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/PricingSection.tsx",
-                                lineNumber: 376,
+                                lineNumber: 368,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/PricingSection.tsx",
-                        lineNumber: 347,
+                        lineNumber: 357,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/components/PricingSection.tsx",
-                lineNumber: 259,
+                lineNumber: 269,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/app/components/PricingSection.tsx",
-            lineNumber: 258,
+            lineNumber: 268,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/components/PricingSection.tsx",
-        lineNumber: 257,
+        lineNumber: 267,
         columnNumber: 5
     }, this);
 }
@@ -2280,7 +2273,7 @@ function PricingSection() {
                                         children: "Choose Your Learning Path"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/PricingSection.tsx",
-                                        lineNumber: 436,
+                                        lineNumber: 431,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2288,13 +2281,13 @@ function PricingSection() {
                                         children: "Select the course that best fits your goals and start building AI systems today."
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/PricingSection.tsx",
-                                        lineNumber: 439,
+                                        lineNumber: 434,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/PricingSection.tsx",
-                                lineNumber: 435,
+                                lineNumber: 430,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2306,17 +2299,17 @@ function PricingSection() {
                                             onEnroll: ()=>handleEnroll(plan.id)
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/PricingSection.tsx",
-                                            lineNumber: 450,
+                                            lineNumber: 445,
                                             columnNumber: 19
                                         }, this)
                                     }, plan.id, false, {
                                         fileName: "[project]/app/components/PricingSection.tsx",
-                                        lineNumber: 449,
+                                        lineNumber: 444,
                                         columnNumber: 17
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/app/components/PricingSection.tsx",
-                                lineNumber: 445,
+                                lineNumber: 440,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2339,19 +2332,19 @@ function PricingSection() {
                                                         d: "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/components/PricingSection.tsx",
-                                                        lineNumber: 463,
+                                                        lineNumber: 458,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/components/PricingSection.tsx",
-                                                    lineNumber: 462,
+                                                    lineNumber: 457,
                                                     columnNumber: 19
                                                 }, this),
                                                 "Tool Usage Policy"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/components/PricingSection.tsx",
-                                            lineNumber: 461,
+                                            lineNumber: 456,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2359,34 +2352,34 @@ function PricingSection() {
                                             children: "All tools used in the course come with generous free tiers. You only need to create free developer accounts for OpenAI, Anthropic, Pinecone, etc. Any optional usage beyond the free tier is your choice."
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/PricingSection.tsx",
-                                            lineNumber: 467,
+                                            lineNumber: 462,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/components/PricingSection.tsx",
-                                    lineNumber: 460,
+                                    lineNumber: 455,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/components/PricingSection.tsx",
-                                lineNumber: 459,
+                                lineNumber: 454,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/PricingSection.tsx",
-                        lineNumber: 433,
+                        lineNumber: 428,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/components/PricingSection.tsx",
-                    lineNumber: 432,
+                    lineNumber: 427,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/components/PricingSection.tsx",
-                lineNumber: 429,
+                lineNumber: 424,
                 columnNumber: 7
             }, this),
             selectedPlan && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(EnrollmentModal, {
@@ -2396,7 +2389,7 @@ function PricingSection() {
                 planName: pricingPlans.find((p)=>p.id === selectedPlan)?.title || ""
             }, void 0, false, {
                 fileName: "[project]/app/components/PricingSection.tsx",
-                lineNumber: 478,
+                lineNumber: 473,
                 columnNumber: 9
             }, this)
         ]

@@ -157,7 +157,7 @@ function EnrollmentModal({
     email: "",
     phone: ""
   });
-  const [selectedGateway, setSelectedGateway] = useState<"payu" | "razorpay" | null>(null);
+  const [selectedGateway, setSelectedGateway] = useState<"razorpay" | null>("razorpay");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Reset step when modal opens/closes
@@ -185,7 +185,7 @@ function EnrollmentModal({
         planId: planId,
         planName: planName,
         planPrice: planDetails?.price || "",
-        paymentGateway: selectedGateway || "pending"
+        paymentGateway: "razorpay"
       };
 
       // Submit to Google Sheets
@@ -215,40 +215,50 @@ function EnrollmentModal({
   };
 
   const handlePayment = async () => {
-    if (!selectedGateway) return;
-
     setIsSubmitting(true);
 
-    // Submit to Google Sheets before redirecting
-    await submitToGoogleSheets();
+    try {
+      // Submit to Google Sheets before redirecting
+      await submitToGoogleSheets();
 
-    // Store customer data in localStorage for reference
-    localStorage.setItem('customerData', JSON.stringify({
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      planId: planId,
-      planName: planName
-    }));
+      // Store customer data in localStorage for reference
+      localStorage.setItem('customerData', JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        planId: planId,
+        planName: planName
+      }));
 
-    const gatewayMap: Record<string, string> = {
-      "1-payu": "https://u.payu.in/PAYUMN/gr5iJQ89Gmfr",
-      "1-razorpay": "https://rzp.io/rzp/9pdi1nf0",
-      "2-payu": "https://u.payu.in/PAYUMN/fr06Qcu6GCdq",
-      "2-razorpay": "https://rzp.io/rzp/phPf6vVd",
-      "3-payu": "https://u.payu.in/PAYUMN/DIGb3CjFwWc5",
-      "3-razorpay": "https://rzp.io/rzp/sL69Bhu"
-    };
-    
-    const paymentKey = `${planId}-${selectedGateway}`;
-    const paymentUrl = gatewayMap[paymentKey] || "#";
-    
-    setIsSubmitting(false);
-    
-    // Redirect to payment gateway
-    // Note: Static payment links don't support URL parameters for pre-filling
-    // Users will need to manually enter their details on the payment gateway page
-    window.location.href = paymentUrl;
+      const gatewayMap: Record<string, string> = {
+        "1-razorpay": "https://rzp.io/rzp/DXdIObc", // LLM Foundations
+        "2-razorpay": "https://rzp.io/rzp/rEJZDsc", // Agentic AI Mastery
+        "3-razorpay": "https://rzp.io/rzp/kvOudgi"  // Bundle
+      };
+      
+      const paymentKey = `${planId}-razorpay`;
+      const paymentUrl = gatewayMap[paymentKey];
+      
+      if (!paymentUrl) {
+        console.error('Payment URL not found for plan:', planId);
+        setIsSubmitting(false);
+        return;
+      }
+      
+      // Add customer data as URL parameters for Razorpay
+      const urlWithParams = new URL(paymentUrl);
+      urlWithParams.searchParams.set('prefill[name]', formData.name);
+      urlWithParams.searchParams.set('prefill[email]', formData.email);
+      urlWithParams.searchParams.set('prefill[contact]', formData.phone);
+      
+      console.log('Redirecting to:', urlWithParams.toString());
+      
+      // Redirect to Razorpay with pre-filled customer data
+      window.location.href = urlWithParams.toString();
+    } catch (error) {
+      console.error('Error in handlePayment:', error);
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -346,32 +356,14 @@ function EnrollmentModal({
           ) : (
             <div className="space-y-4">
               <p className="text-gray-700 mb-6">
-                Please select your preferred payment gateway:
+                You will be redirected to our secure payment gateway:
               </p>
               
-              <button
-                onClick={() => setSelectedGateway("payu")}
-                className={`w-full p-4 border-2 rounded-lg text-left transition-all ${
-                  selectedGateway === "payu"
-                    ? "border-gray-900 bg-gray-50"
-                    : "border-gray-300 hover:border-gray-400"
-                }`}
-              >
-                <div className="font-semibold text-gray-900">PayU</div>
-                <div className="text-sm text-gray-600">Secure payment via PayU</div>
-              </button>
-              
-              <button
-                onClick={() => setSelectedGateway("razorpay")}
-                className={`w-full p-4 border-2 rounded-lg text-left transition-all ${
-                  selectedGateway === "razorpay"
-                    ? "border-gray-900 bg-gray-50"
-                    : "border-gray-300 hover:border-gray-400"
-                }`}
-              >
+              <div className="w-full p-4 border-2 border-gray-900 bg-gray-50 rounded-lg">
                 <div className="font-semibold text-gray-900">Razorpay</div>
                 <div className="text-sm text-gray-600">Secure payment via Razorpay</div>
-              </button>
+                <div className="text-xs text-green-600 mt-1">✓ Your details will be pre-filled</div>
+              </div>
               
               <div className="flex gap-4 pt-4">
                 <button
@@ -381,8 +373,11 @@ function EnrollmentModal({
                   Back
                 </button>
                 <button
-                  onClick={handlePayment}
-                  disabled={!selectedGateway || isSubmitting}
+                  onClick={() => {
+                    console.log('Payment button clicked');
+                    handlePayment();
+                  }}
+                  disabled={isSubmitting}
                   className="flex-1 bg-gray-900 text-white px-4 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Submitting..." : "Proceed to Payment"}

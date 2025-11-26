@@ -1549,6 +1549,10 @@
     color: var(--color-gray-900);
   }
 
+  .text-green-600 {
+    color: var(--color-green-600);
+  }
+
   .text-white {
     color: var(--color-white);
   }
