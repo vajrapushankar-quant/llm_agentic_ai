@@ -165,16 +165,27 @@ const courses = [
 
 function WeekCard({ week, isOpen, onToggle }: { week: typeof courses[0]['weeks'][0]; isOpen: boolean; onToggle: () => void }) {
   return (
-    <div className="bg-white/10 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
+    <div className="bg-gray-200/10 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
       <button
         onClick={onToggle}
         className="w-full px-6 md:px-8 py-4 md:py-5 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
       >
         <h3 className="text-lg md:text-xl font-semibold text-gray-900 pr-4">
-          {week.title}
+          {(() => {
+            const parts = week.title.split(' — ');
+            if (parts.length > 1) {
+              return (
+                <>
+                  <span className="text-purple-600">{parts[0]} — </span>
+                  <span>{parts.slice(1).join(' — ')}</span>
+                </>
+              );
+            }
+            return <span>{week.title}</span>;
+          })()}
         </h3>
         <svg
-          className={`w-5 h-5 md:w-6 md:h-6 text-gray-700 flex-shrink-0 transition-transform duration-200 ${
+          className={`w-5 h-5 md:w-6 md:h-6 text-gray-900 flex-shrink-0 transition-transform duration-200 ${
             isOpen ? "rotate-180" : ""
           }`}
           fill="none"
@@ -189,8 +200,8 @@ function WeekCard({ week, isOpen, onToggle }: { week: typeof courses[0]['weeks']
           <ul className="space-y-2 md:space-y-3">
             {week.content.map((item, index) => (
               <li key={index} className="flex gap-3 items-start">
-                <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-emerald-500" />
-                <span className="text-sm md:text-base text-gray-700 leading-relaxed">{item}</span>
+                <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-purple-600" />
+                <span className="text-sm md:text-base text-gray-900 leading-relaxed">{item}</span>
               </li>
             ))}
           </ul>
@@ -227,10 +238,10 @@ export default function CourseSection() {
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
                   {course.title}
                 </h2>
-                <p className="text-base md:text-lg lg:text-xl text-gray-700 mb-4 md:mb-6 max-w-3xl mx-auto">
+                <p className="text-base md:text-lg lg:text-xl text-gray-900 mb-4 md:mb-6 max-w-3xl mx-auto">
                   {course.description}
                 </p>
-                <p className="text-sm md:text-base text-gray-600">
+                <p className="text-sm md:text-base text-gray-700">
                   {course.cohortInfo}
                 </p>
               </div>

@@ -81,7 +81,7 @@ function HeroHeader() {
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "order-1 md:hidden flex justify-center w-full",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                src: "/hero_header_animation.gif",
+                                src: "/hero_header_animation II.gif",
                                 alt: "Hero Animation",
                                 width: 800,
                                 height: 800,
@@ -197,7 +197,7 @@ function HeroHeader() {
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     onClick: scrollToPricing,
-                                    className: "w-full md:w-auto bg-white text-gray-900 px-6 md:px-8 py-2.5 md:py-3 rounded-full font-medium hover:bg-gray-100 transition-colors text-base md:text-[1.5rem]",
+                                    className: "w-full md:w-auto bg-[#111827]/90 text-[#F9FAFB] px-6 md:px-8 py-2.5 md:py-3 rounded-full font-medium hover:bg-[#111827] transition-colors text-base md:text-[1.5rem]",
                                     style: {
                                         fontFamily: '"Proxima Nova", sans-serif'
                                     },
@@ -278,7 +278,7 @@ function HeroHeader() {
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "hidden lg:flex lg:order-2 justify-end",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                src: "/hero_header_animation.gif",
+                                src: "/hero_header_animation III.gif",
                                 alt: "Hero Animation",
                                 width: 800,
                                 height: 800,
@@ -401,7 +401,7 @@ function InstructorCard({ name, title, imageSrc, linkedInUrl }) {
         className: "relative rounded-2xl shadow-lg px-6 md:px-8 py-8 md:py-10 pt-20 md:pt-24 overflow-visible",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute inset-0 bg-white/10 backdrop-blur-sm rounded-2xl z-0"
+                className: "absolute inset-0 bg-[#111827]/90 backdrop-blur-sm rounded-2xl z-0"
             }, void 0, false, {
                 fileName: "[project]/app/components/InstructorCard.tsx",
                 lineNumber: 17,
@@ -410,12 +410,12 @@ function InstructorCard({ name, title, imageSrc, linkedInUrl }) {
             imageSrc && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-40 md:h-40 rounded-full z-0",
                 style: {
-                    background: 'radial-gradient(circle, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.15) 100%)',
+                    background: 'radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 100%)',
                     boxShadow: `
-              inset 0 4px 20px rgba(0,0,0,0.6),
-              inset 0 -2px 10px rgba(0,0,0,0.4),
-              0 0 0 3px rgba(255,255,255,0.1),
-              0 4px 15px rgba(0,0,0,0.3)
+              inset 0 4px 20px rgba(255,255,255,0.1),
+              inset 0 -2px 10px rgba(0,0,0,0.3),
+              0 0 0 3px rgba(147,51,234,0.3),
+              0 4px 15px rgba(0,0,0,0.5)
             `
                 }
             }, void 0, false, {
@@ -426,7 +426,7 @@ function InstructorCard({ name, title, imageSrc, linkedInUrl }) {
             imageSrc && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white/40 shadow-2xl ring-2 ring-emerald-500/40",
+                    className: "relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white/40 shadow-2xl ring-2 ring-purple-600",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                         src: imageSrc,
                         alt: name,
@@ -452,7 +452,7 @@ function InstructorCard({ name, title, imageSrc, linkedInUrl }) {
                 className: "relative z-10 mt-8 md:mt-12",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                        className: "text-2xl md:text-3xl font-bold text-gray-900 mb-2 text-center",
+                        className: "text-2xl md:text-3xl font-bold text-[#F9FAFB] mb-2 text-center",
                         children: name
                     }, void 0, false, {
                         fileName: "[project]/app/components/InstructorCard.tsx",
@@ -460,7 +460,7 @@ function InstructorCard({ name, title, imageSrc, linkedInUrl }) {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-sm md:text-base text-gray-700 leading-relaxed text-center mb-4",
+                        className: "text-sm md:text-base text-gray-300 leading-relaxed text-center mb-4",
                         children: title
                     }, void 0, false, {
                         fileName: "[project]/app/components/InstructorCard.tsx",
@@ -476,11 +476,11 @@ function InstructorCard({ name, title, imageSrc, linkedInUrl }) {
                             className: "inline-flex items-center justify-center transition-all duration-200 hover:scale-110",
                             "aria-label": "LinkedIn Profile",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                src: "/LinkedIn.svg",
+                                src: "/LinkedIn_Logo.png",
                                 alt: "LinkedIn",
-                                width: 60,
+                                width: 120,
                                 height: 60,
-                                className: "w-12 h-12 md:w-16 md:h-16"
+                                className: "w-12 h-12 md:w-24 md:h-8"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/InstructorCard.tsx",
                                 lineNumber: 69,
@@ -528,10 +528,10 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 function AboutInstructorCard({ bio, projectsIntro, projects, philosophyIntro, philosophy, additionalInfo }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "bg-white/10 backdrop-blur-sm rounded-2xl shadow-lg px-6 md:px-8 lg:px-10 py-8 md:py-10",
+        className: "bg-gray-200/10 backdrop-blur-sm rounded-2xl shadow-lg px-6 md:px-8 lg:px-10 py-8 md:py-10",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: "text-base md:text-lg text-gray-700 leading-relaxed mb-6",
+                className: "text-base md:text-lg text-gray-900 leading-relaxed mb-6",
                 children: bio
             }, void 0, false, {
                 fileName: "[project]/app/components/AboutInstructorCard.tsx",
@@ -539,7 +539,7 @@ function AboutInstructorCard({ bio, projectsIntro, projects, philosophyIntro, ph
                 columnNumber: 7
             }, this),
             projectsIntro && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: "text-base md:text-lg text-gray-700 leading-relaxed mb-4",
+                className: "text-base md:text-lg text-gray-900 leading-relaxed mb-4",
                 children: projectsIntro
             }, void 0, false, {
                 fileName: "[project]/app/components/AboutInstructorCard.tsx",
@@ -547,12 +547,12 @@ function AboutInstructorCard({ bio, projectsIntro, projects, philosophyIntro, ph
                 columnNumber: 9
             }, this),
             projects && projects.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                className: "space-y-2 mb-6 text-base md:text-lg text-gray-700",
+                className: "space-y-2 mb-6 text-base md:text-lg text-gray-900",
                 children: projects.map((project, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                         className: "flex gap-3 items-start",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-emerald-500"
+                                className: "mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-purple-600"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/AboutInstructorCard.tsx",
                                 lineNumber: 36,
@@ -577,7 +577,7 @@ function AboutInstructorCard({ bio, projectsIntro, projects, philosophyIntro, ph
                 columnNumber: 9
             }, this),
             additionalInfo && additionalInfo.map((info, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                    className: "text-base md:text-lg text-gray-700 leading-relaxed mb-6",
+                    className: "text-base md:text-lg text-gray-900 leading-relaxed mb-6",
                     children: info
                 }, index, false, {
                     fileName: "[project]/app/components/AboutInstructorCard.tsx",
@@ -595,12 +595,12 @@ function AboutInstructorCard({ bio, projectsIntro, projects, philosophyIntro, ph
                         columnNumber: 11
                     }, this),
                     philosophy && philosophy.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                        className: "space-y-2 text-base md:text-lg text-gray-700",
+                        className: "space-y-2 text-base md:text-lg text-gray-900",
                         children: philosophy.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                 className: "flex gap-3 items-start",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-emerald-500"
+                                        className: "mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-purple-600"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/AboutInstructorCard.tsx",
                                         lineNumber: 58,
@@ -775,7 +775,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$imag
 ;
 function JourneyCard({ title, description, items, animationSrc }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "w-full max-w-7xl mx-auto aspect-[4/3] bg-white/10 backdrop-blur-sm rounded-2xl shadow-lg px-6 md:px-8 lg:px-12 py-8 md:py-12 flex flex-col md:flex-row items-center gap-6 md:gap-8 lg:gap-12",
+        className: "w-full max-w-7xl mx-auto aspect-[4/3] bg-gray-200/10 backdrop-blur-sm rounded-2xl shadow-lg px-6 md:px-8 lg:px-12 py-8 md:py-12 flex flex-col md:flex-row items-center gap-6 md:gap-8 lg:gap-12",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex-shrink-0 w-full md:w-1/2 flex justify-center items-center",
@@ -821,14 +821,14 @@ function JourneyCard({ title, description, items, animationSrc }) {
                                 className: "flex gap-3 items-start",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-emerald-500"
+                                        className: "mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-purple-600"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/JourneyCard.tsx",
                                         lineNumber: 38,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "text-sm md:text-base text-gray-700",
+                                        className: "text-sm md:text-base text-gray-900",
                                         children: item
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/JourneyCard.tsx",
@@ -1396,7 +1396,7 @@ const courses = [
 ];
 function WeekCard({ week, isOpen, onToggle }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "bg-white/10 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden",
+        className: "bg-gray-200/10 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                 onClick: onToggle,
@@ -1404,14 +1404,47 @@ function WeekCard({ week, isOpen, onToggle }) {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                         className: "text-lg md:text-xl font-semibold text-gray-900 pr-4",
-                        children: week.title
+                        children: (()=>{
+                            const parts = week.title.split(' — ');
+                            if (parts.length > 1) {
+                                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-purple-600",
+                                            children: [
+                                                parts[0],
+                                                " — "
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/components/CourseSection.tsx",
+                                            lineNumber: 179,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            children: parts.slice(1).join(' — ')
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/components/CourseSection.tsx",
+                                            lineNumber: 180,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, void 0, true);
+                            }
+                            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                children: week.title
+                            }, void 0, false, {
+                                fileName: "[project]/app/components/CourseSection.tsx",
+                                lineNumber: 184,
+                                columnNumber: 20
+                            }, this);
+                        })()
                     }, void 0, false, {
                         fileName: "[project]/app/components/CourseSection.tsx",
                         lineNumber: 173,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                        className: `w-5 h-5 md:w-6 md:h-6 text-gray-700 flex-shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`,
+                        className: `w-5 h-5 md:w-6 md:h-6 text-gray-900 flex-shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`,
                         fill: "none",
                         stroke: "currentColor",
                         viewBox: "0 0 24 24",
@@ -1422,12 +1455,12 @@ function WeekCard({ week, isOpen, onToggle }) {
                             d: "M19 9l-7 7-7-7"
                         }, void 0, false, {
                             fileName: "[project]/app/components/CourseSection.tsx",
-                            lineNumber: 184,
+                            lineNumber: 195,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/CourseSection.tsx",
-                        lineNumber: 176,
+                        lineNumber: 187,
                         columnNumber: 9
                     }, this)
                 ]
@@ -1444,34 +1477,34 @@ function WeekCard({ week, isOpen, onToggle }) {
                             className: "flex gap-3 items-start",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: "mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-emerald-500"
+                                    className: "mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-purple-600"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/CourseSection.tsx",
-                                    lineNumber: 192,
+                                    lineNumber: 203,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: "text-sm md:text-base text-gray-700 leading-relaxed",
+                                    className: "text-sm md:text-base text-gray-900 leading-relaxed",
                                     children: item
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/CourseSection.tsx",
-                                    lineNumber: 193,
+                                    lineNumber: 204,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, index, true, {
                             fileName: "[project]/app/components/CourseSection.tsx",
-                            lineNumber: 191,
+                            lineNumber: 202,
                             columnNumber: 15
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/app/components/CourseSection.tsx",
-                    lineNumber: 189,
+                    lineNumber: 200,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/components/CourseSection.tsx",
-                lineNumber: 188,
+                lineNumber: 199,
                 columnNumber: 9
             }, this)
         ]
@@ -1513,29 +1546,29 @@ function CourseSection() {
                                         children: course.title
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/CourseSection.tsx",
-                                        lineNumber: 227,
+                                        lineNumber: 238,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-base md:text-lg lg:text-xl text-gray-700 mb-4 md:mb-6 max-w-3xl mx-auto",
+                                        className: "text-base md:text-lg lg:text-xl text-gray-900 mb-4 md:mb-6 max-w-3xl mx-auto",
                                         children: course.description
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/CourseSection.tsx",
-                                        lineNumber: 230,
+                                        lineNumber: 241,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-sm md:text-base text-gray-600",
+                                        className: "text-sm md:text-base text-gray-700",
                                         children: course.cohortInfo
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/CourseSection.tsx",
-                                        lineNumber: 233,
+                                        lineNumber: 244,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/CourseSection.tsx",
-                                lineNumber: 226,
+                                lineNumber: 237,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1546,33 +1579,33 @@ function CourseSection() {
                                         onToggle: ()=>toggleWeek(course.id, week.id)
                                     }, week.id, false, {
                                         fileName: "[project]/app/components/CourseSection.tsx",
-                                        lineNumber: 241,
+                                        lineNumber: 252,
                                         columnNumber: 19
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/app/components/CourseSection.tsx",
-                                lineNumber: 239,
+                                lineNumber: 250,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, course.id, true, {
                         fileName: "[project]/app/components/CourseSection.tsx",
-                        lineNumber: 224,
+                        lineNumber: 235,
                         columnNumber: 13
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/app/components/CourseSection.tsx",
-                lineNumber: 222,
+                lineNumber: 233,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/app/components/CourseSection.tsx",
-            lineNumber: 221,
+            lineNumber: 232,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/components/CourseSection.tsx",
-        lineNumber: 218,
+        lineNumber: 229,
         columnNumber: 5
     }, this);
 }
@@ -1665,12 +1698,12 @@ function PriceCard({ plan, onEnroll }) {
     const isBundle = plan.id === 3;
     const isAgenticAI = plan.id === 2;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: `${isBundle ? 'bg-gray-900 scale-110 ring-4 ring-emerald-500/30' : 'bg-white/10 backdrop-blur-sm'} rounded-2xl shadow-lg ${isBundle ? 'p-7 md:p-10' : 'p-6 md:p-8'} flex flex-col h-full relative ${isBundle ? 'z-10' : ''}`,
+        className: `${isBundle ? 'bg-gray-900 scale-110 ring-4 ring-purple-600/30' : 'bg-gray-200/10 backdrop-blur-sm'} rounded-2xl shadow-lg ${isBundle ? 'p-7 md:p-10' : 'p-6 md:p-8'} flex flex-col h-full relative ${isBundle ? 'z-10' : ''}`,
         children: [
             plan.badge && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "mb-4 text-center",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                    className: `inline-block px-4 py-2 ${isBundle ? 'bg-emerald-500 text-white' : 'bg-emerald-500/20 text-emerald-700'} rounded-full text-sm font-semibold`,
+                    className: `inline-block px-4 py-2 ${isBundle ? 'bg-purple-600 text-white' : 'bg-purple-600/20 text-purple-700'} rounded-full text-sm font-semibold`,
                     children: plan.badge
                 }, void 0, false, {
                     fileName: "[project]/app/components/PricingSection.tsx",
@@ -1719,7 +1752,7 @@ function PriceCard({ plan, onEnroll }) {
                         columnNumber: 9
                     }, this),
                     plan.savings && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: `text-sm ${isBundle ? 'text-emerald-400' : 'text-emerald-600'} font-semibold mt-1`,
+                        className: `text-sm ${isBundle ? 'text-purple-400' : 'text-purple-600'} font-semibold mt-1`,
                         children: [
                             "Save ",
                             plan.savings
@@ -1797,7 +1830,7 @@ function PriceCard({ plan, onEnroll }) {
                                 className: "flex gap-2 items-start",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-emerald-500"
+                                        className: "mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-purple-600"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/PricingSection.tsx",
                                         lineNumber: 110,
@@ -1855,7 +1888,7 @@ function PriceCard({ plan, onEnroll }) {
                 columnNumber: 7
             }, this),
             isAgenticAI && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "mb-4 p-3 bg-amber-50/50 border border-amber-200/50 rounded-lg",
+                className: "mb-4 p-3 bg-purple-500/10 border border-purple-600/30 rounded-lg",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: "text-xs md:text-sm text-gray-700 leading-relaxed",
                     children: [
@@ -2021,7 +2054,7 @@ function EnrollmentModal({ isOpen, onClose, planId, planName }) {
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: onClose,
-                                className: "text-gray-500 hover:text-gray-700 text-2xl",
+                                className: "text-gray-900/90 hover:text-gray-700 text-2xl",
                                 children: "×"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/PricingSection.tsx",
@@ -2554,11 +2587,11 @@ const faqs = [
 ];
 function FAQCard({ faq, isOpen, onToggle }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "bg-white/10 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden",
+        className: "bg-gray-200/10 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                 onClick: onToggle,
-                className: "w-full px-6 md:px-8 py-4 md:py-5 text-left flex items-center justify-between hover:bg-white/5 transition-colors",
+                className: "w-full px-6 md:px-8 py-4 md:py-5 text-left flex items-center justify-between hover:bg-gray-200/20 transition-colors",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                         className: "text-lg md:text-xl font-semibold text-gray-900 pr-4",
@@ -2569,7 +2602,7 @@ function FAQCard({ faq, isOpen, onToggle }) {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                        className: `w-5 h-5 md:w-6 md:h-6 text-gray-700 flex-shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`,
+                        className: `w-5 h-5 md:w-6 md:h-6 text-gray-900 flex-shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`,
                         fill: "none",
                         stroke: "currentColor",
                         viewBox: "0 0 24 24",
@@ -2597,7 +2630,7 @@ function FAQCard({ faq, isOpen, onToggle }) {
             isOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "px-6 md:px-8 pb-6 md:pb-8",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                    className: "text-sm md:text-base text-gray-700 leading-relaxed",
+                    className: "text-sm md:text-base text-gray-900 leading-relaxed",
                     children: faq.answer
                 }, void 0, false, {
                     fileName: "[project]/app/components/FAQSection.tsx",
@@ -2710,7 +2743,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 function Footer() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
-        className: "bg-black text-white py-8 md:py-12",
+        className: "bg-[#111827] text-white py-8 md:py-12",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "max-w-7xl mx-auto px-4 md:px-8 lg:px-12 xl:px-16",
             children: [
@@ -2718,33 +2751,51 @@ function Footer() {
                     className: "flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex items-center",
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                href: "#",
-                                onClick: (e)=>{
-                                    e.preventDefault();
-                                    window.scrollTo({
-                                        top: 0,
-                                        behavior: 'smooth'
-                                    });
-                                },
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                    src: "/Quantumrush White.png",
-                                    alt: "QuantumRush Logo",
-                                    width: 200,
-                                    height: 60,
-                                    className: "h-8 md:h-12 w-auto"
+                            className: "flex flex-col items-center gap-3",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                    href: "#",
+                                    onClick: (e)=>{
+                                        e.preventDefault();
+                                        window.scrollTo({
+                                            top: 0,
+                                            behavior: 'smooth'
+                                        });
+                                    },
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                        src: "/Quantumrush White.png",
+                                        alt: "QuantumRush Logo",
+                                        width: 300,
+                                        height: 90,
+                                        className: "h-12 md:h-16 w-auto"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/components/Footer.tsx",
+                                        lineNumber: 20,
+                                        columnNumber: 15
+                                    }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/Footer.tsx",
-                                    lineNumber: 20,
-                                    columnNumber: 15
+                                    lineNumber: 13,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                    className: "text-xl md:text-1xl font-bold text-gray-50 text-center",
+                                    children: "The Future, Fast-Tracked."
+                                }, void 0, false, {
+                                    fileName: "[project]/app/components/Footer.tsx",
+                                    lineNumber: 28,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "text-sm md:text-base text-gray-200 text-center",
+                                    children: "The world moves fast. We'll help you move faster."
+                                }, void 0, false, {
+                                    fileName: "[project]/app/components/Footer.tsx",
+                                    lineNumber: 31,
+                                    columnNumber: 13
                                 }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/app/components/Footer.tsx",
-                                lineNumber: 13,
-                                columnNumber: 13
-                            }, this)
-                        }, void 0, false, {
+                            ]
+                        }, void 0, true, {
                             fileName: "[project]/app/components/Footer.tsx",
                             lineNumber: 12,
                             columnNumber: 11
@@ -2758,7 +2809,7 @@ function Footer() {
                                     children: "Course"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/Footer.tsx",
-                                    lineNumber: 32,
+                                    lineNumber: 38,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -2767,7 +2818,7 @@ function Footer() {
                                     children: "Journey"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/Footer.tsx",
-                                    lineNumber: 38,
+                                    lineNumber: 44,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -2776,7 +2827,7 @@ function Footer() {
                                     children: "Instructor"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/Footer.tsx",
-                                    lineNumber: 44,
+                                    lineNumber: 50,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -2785,7 +2836,7 @@ function Footer() {
                                     children: "Pricing"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/Footer.tsx",
-                                    lineNumber: 50,
+                                    lineNumber: 56,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -2794,13 +2845,13 @@ function Footer() {
                                     children: "FAQ"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/Footer.tsx",
-                                    lineNumber: 56,
+                                    lineNumber: 62,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/components/Footer.tsx",
-                            lineNumber: 31,
+                            lineNumber: 37,
                             columnNumber: 11
                         }, this)
                     ]
@@ -2817,31 +2868,41 @@ function Footer() {
                         children: "contact@quantumrush.ai"
                     }, void 0, false, {
                         fileName: "[project]/app/components/Footer.tsx",
-                        lineNumber: 67,
+                        lineNumber: 73,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/components/Footer.tsx",
-                    lineNumber: 66,
+                    lineNumber: 72,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mt-4 text-center",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-sm text-gray-400",
-                        children: [
-                            "© ",
-                            new Date().getFullYear(),
-                            " QuantumRush. All rights reserved."
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/components/Footer.tsx",
-                        lineNumber: 77,
-                        columnNumber: 11
-                    }, this)
-                }, void 0, false, {
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-sm text-gray-400",
+                            children: [
+                                "© ",
+                                new Date().getFullYear(),
+                                " QuantumRush Pvt. Ltd. All rights reserved."
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/components/Footer.tsx",
+                            lineNumber: 83,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-sm text-gray-400",
+                            children: "CIN: U62011TS2024PTC189742"
+                        }, void 0, false, {
+                            fileName: "[project]/app/components/Footer.tsx",
+                            lineNumber: 86,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
                     fileName: "[project]/app/components/Footer.tsx",
-                    lineNumber: 76,
+                    lineNumber: 82,
                     columnNumber: 9
                 }, this)
             ]

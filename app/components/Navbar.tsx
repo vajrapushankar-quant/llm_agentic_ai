@@ -9,7 +9,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-7xl mx-auto bg-white/10 backdrop-blur-sm rounded-full shadow-lg px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
+      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-7xl mx-auto bg-[#111827]/90 rounded-full shadow-lg px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
         {/* Logo - smaller on mobile */}
         <Link 
           href="#" 
@@ -34,25 +34,25 @@ export default function Navbar() {
           <div className="flex items-center gap-8">
             <Link
               href="#course"
-              className="text-gray-700 hover:text-black transition-all duration-200 font-medium relative hover:underline underline-offset-4"
+              className="text-[#F9FAFB] hover:opacity-80 transition-all duration-200 font-medium relative hover:underline underline-offset-4"
             >
               Course
             </Link>
             <Link
               href="#journey"
-              className="text-gray-700 hover:text-black transition-all duration-200 font-medium relative hover:underline underline-offset-4"
+              className="text-[#F9FAFB] hover:opacity-80 transition-all duration-200 font-medium relative hover:underline underline-offset-4"
             >
               Journey
             </Link>
             <Link
               href="#instructor"
-              className="text-gray-700 hover:text-black transition-all duration-200 font-medium relative hover:underline underline-offset-4"
+              className="text-[#F9FAFB] hover:opacity-80 transition-all duration-200 font-medium relative hover:underline underline-offset-4"
             >
               Instructor
             </Link>
             <Link
               href="#faq"
-              className="text-gray-700 hover:text-black transition-all duration-200 font-medium relative hover:underline underline-offset-4"
+              className="text-[#F9FAFB] hover:opacity-80 transition-all duration-200 font-medium relative hover:underline underline-offset-4"
             >
               FAQ
             </Link>
@@ -61,7 +61,7 @@ export default function Navbar() {
           {/* CTA Button */}
           <Link
             href="#pricing"
-            className="bg-black text-white px-6 py-2.5 rounded-full font-medium hover:bg-gray-800 transition-colors whitespace-nowrap"
+            className="bg-[#9333EA] text-[#F9FAFB] px-6 py-2.5 rounded-full font-medium hover:bg-[#7E22CE] transition-colors whitespace-nowrap"
           >
             Enroll Now
           </Link>
@@ -73,9 +73,9 @@ export default function Navbar() {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
-          <span className={`w-6 h-0.5 bg-gray-700 transition-all ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-          <span className={`w-6 h-0.5 bg-gray-700 transition-all ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-          <span className={`w-6 h-0.5 bg-gray-700 transition-all ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+          <span className={`w-6 h-0.5 bg-[#F9FAFB] transition-all ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+          <span className={`w-6 h-0.5 bg-[#F9FAFB] transition-all ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+          <span className={`w-6 h-0.5 bg-[#F9FAFB] transition-all ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
         </button>
       </nav>
 
@@ -85,35 +85,35 @@ export default function Navbar() {
           <div className="flex flex-col p-6 gap-4">
             <Link
               href="#course"
-              className="text-gray-700 hover:text-black transition-colors font-medium py-2"
+              className="text-gray-900 hover:text-gray-700 transition-colors font-medium py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Course
             </Link>
             <Link
               href="#journey"
-              className="text-gray-700 hover:text-black transition-colors font-medium py-2"
+              className="text-gray-900 hover:text-gray-700 transition-colors font-medium py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Journey
             </Link>
             <Link
               href="#instructor"
-              className="text-gray-700 hover:text-black transition-colors font-medium py-2"
+              className="text-gray-900 hover:text-gray-700 transition-colors font-medium py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Instructor
             </Link>
             <Link
               href="#faq"
-              className="text-gray-700 hover:text-black transition-colors font-medium py-2"
+              className="text-gray-900 hover:text-gray-700 transition-colors font-medium py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               FAQ
             </Link>
             <Link
               href="#pricing"
-              className="bg-black text-white px-6 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors mt-2 text-center"
+              className="bg-[#9333EA] text-[#F9FAFB] px-6 py-3 rounded-full font-medium hover:bg-[#7E22CE] transition-colors mt-2 text-center"
               onClick={() => setIsMenuOpen(false)}
             >
               Enroll Now

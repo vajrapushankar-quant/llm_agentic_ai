@@ -72,10 +72,10 @@ function PriceCard({ plan, onEnroll }: { plan: typeof pricingPlans[0]; onEnroll:
   const isAgenticAI = plan.id === 2;
   
   return (
-    <div className={`${isBundle ? 'bg-gray-900 scale-110 ring-4 ring-emerald-500/30' : 'bg-white/10 backdrop-blur-sm'} rounded-2xl shadow-lg ${isBundle ? 'p-7 md:p-10' : 'p-6 md:p-8'} flex flex-col h-full relative ${isBundle ? 'z-10' : ''}`}>
+    <div className={`${isBundle ? 'bg-gray-900 scale-110 ring-4 ring-purple-600/30' : 'bg-gray-200/10 backdrop-blur-sm'} rounded-2xl shadow-lg ${isBundle ? 'p-7 md:p-10' : 'p-6 md:p-8'} flex flex-col h-full relative ${isBundle ? 'z-10' : ''}`}>
       {plan.badge && (
         <div className="mb-4 text-center">
-          <span className={`inline-block px-4 py-2 ${isBundle ? 'bg-emerald-500 text-white' : 'bg-emerald-500/20 text-emerald-700'} rounded-full text-sm font-semibold`}>
+          <span className={`inline-block px-4 py-2 ${isBundle ? 'bg-purple-600 text-white' : 'bg-purple-600/20 text-purple-700'} rounded-full text-sm font-semibold`}>
             {plan.badge}
           </span>
         </div>
@@ -93,7 +93,7 @@ function PriceCard({ plan, onEnroll }: { plan: typeof pricingPlans[0]; onEnroll:
           )}
         </div>
         {plan.savings && (
-          <p className={`text-sm ${isBundle ? 'text-emerald-400' : 'text-emerald-600'} font-semibold mt-1`}>Save {plan.savings}</p>
+          <p className={`text-sm ${isBundle ? 'text-purple-400' : 'text-purple-600'} font-semibold mt-1`}>Save {plan.savings}</p>
         )}
       </div>
       
@@ -107,7 +107,7 @@ function PriceCard({ plan, onEnroll }: { plan: typeof pricingPlans[0]; onEnroll:
         <ul className="space-y-2">
           {plan.features.map((feature, index) => (
             <li key={index} className="flex gap-2 items-start">
-              <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-emerald-500" />
+              <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-purple-600" />
               <span className={`text-sm md:text-base ${isBundle ? 'text-gray-300' : 'text-gray-700'}`}>{feature}</span>
             </li>
           ))}
@@ -122,7 +122,7 @@ function PriceCard({ plan, onEnroll }: { plan: typeof pricingPlans[0]; onEnroll:
 
       {/* Recommendation note for Agentic AI */}
       {isAgenticAI && (
-        <div className="mb-4 p-3 bg-amber-50/50 border border-amber-200/50 rounded-lg">
+        <div className="mb-4 p-3 bg-purple-500/10 border border-purple-600/30 rounded-lg">
           <p className="text-xs md:text-sm text-gray-700 leading-relaxed">
             <strong>💡 Recommended:</strong> Take LLM Foundations first or choose Bundle
           </p>
@@ -273,7 +273,7 @@ function EnrollmentModal({
             </h2>
             <button
               onClick={onClose}
-              className="text-gray-500 hover:text-gray-700 text-2xl"
+              className="text-gray-900/90 hover:text-gray-700 text-2xl"
             >
               ×
             </button>

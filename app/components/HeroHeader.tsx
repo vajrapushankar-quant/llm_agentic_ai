@@ -44,7 +44,7 @@ export default function HeroHeader() {
           {/* GIF - Mobile only (shown first on mobile) */}
           <div className="order-1 md:hidden flex justify-center w-full">
             <Image
-              src="/hero_header_animation.gif"
+              src="/hero_header_animation II.gif"
               alt="Hero Animation"
               width={800}
               height={800}
@@ -97,7 +97,7 @@ export default function HeroHeader() {
             {/* Enroll Now Button - Mobile: full width, reduced height, Desktop: normal */}
             <button 
               onClick={scrollToPricing}
-              className="w-full md:w-auto bg-white text-gray-900 px-6 md:px-8 py-2.5 md:py-3 rounded-full font-medium hover:bg-gray-100 transition-colors text-base md:text-[1.5rem]"
+              className="w-full md:w-auto bg-[#111827]/90 text-[#F9FAFB] px-6 md:px-8 py-2.5 md:py-3 rounded-full font-medium hover:bg-[#111827] transition-colors text-base md:text-[1.5rem]"
               style={{ fontFamily: '"Proxima Nova", sans-serif' }}
             >
               Enroll Now
@@ -146,7 +146,7 @@ export default function HeroHeader() {
           {/* Right side - Animation - Desktop only */}
           <div className="hidden lg:flex lg:order-2 justify-end">
             <Image
-              src="/hero_header_animation.gif"
+              src="/hero_header_animation III.gif"
               alt="Hero Animation"
               width={800}
               height={800}

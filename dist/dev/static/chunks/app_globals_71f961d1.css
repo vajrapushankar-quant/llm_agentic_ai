@@ -1214,6 +1214,23 @@
     background-color: #25d366;
   }
 
+  .bg-\[\#9333EA\] {
+    background-color: #9333ea;
+  }
+
+  .bg-\[\#111827\] {
+    background-color: #111827;
+  }
+
+  .bg-\[\#111827\]\/90 {
+    background-color: #111827e6;
+    background-color: lab(8.15142% .643015 -11.4721 / .9);
+  }
+
+  .bg-\[\#F9FAFB\] {
+    background-color: #f9fafb;
+  }
+
   .bg-amber-50 {
     background-color: var(--color-amber-50);
   }
@@ -1509,6 +1526,10 @@
     white-space: nowrap;
   }
 
+  .text-\[\#F9FAFB\] {
+    color: #f9fafb;
+  }
+
   .text-blue-600 {
     color: var(--color-blue-600);
   }
@@ -1693,6 +1714,12 @@
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
 
+  .transition-opacity {
+    transition-property: opacity;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+
   .transition-transform {
     transition-property: transform, translate, scale, rotate;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -1742,6 +1769,12 @@
   @media (hover: hover) {
     .hover\:border-gray-400:hover {
       border-color: var(--color-gray-400);
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:bg-\[\#7E22CE\]:hover {
+      background-color: #7e22ce;
     }
   }
 
@@ -1806,12 +1839,6 @@
   }
 
   @media (hover: hover) {
-    .hover\:text-black:hover {
-      color: var(--color-black);
-    }
-  }
-
-  @media (hover: hover) {
     .hover\:text-blue-800:hover {
       color: var(--color-blue-800);
     }
@@ -1832,6 +1859,12 @@
   @media (hover: hover) {
     .hover\:underline:hover {
       text-decoration-line: underline;
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:opacity-80:hover {
+      opacity: .8;
     }
   }
 
@@ -2396,13 +2429,13 @@
 }
 
 :root {
-  --background: #d1e2e4;
+  --background: #f9fafb;
   --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #d1e2e4;
+    --background: #f9fafb;
     --foreground: #171717;
   }
 }

@@ -14,19 +14,19 @@ export default function InstructorCard({ name, title, imageSrc, linkedInUrl }: I
   return (
     <div className="relative rounded-2xl shadow-lg px-6 md:px-8 py-8 md:py-10 pt-20 md:pt-24 overflow-visible">
       {/* Card background - isolated blur layer */}
-      <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-2xl z-0" />
+      <div className="absolute inset-0 bg-[#111827]/90 backdrop-blur-sm rounded-2xl z-0" />
       
       {/* Etched/recessed circular area - creates carved appearance */}
       {imageSrc && (
         <div 
           className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-40 md:h-40 rounded-full z-0"
           style={{
-            background: 'radial-gradient(circle, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.15) 100%)',
+            background: 'radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 100%)',
             boxShadow: `
-              inset 0 4px 20px rgba(0,0,0,0.6),
-              inset 0 -2px 10px rgba(0,0,0,0.4),
-              0 0 0 3px rgba(255,255,255,0.1),
-              0 4px 15px rgba(0,0,0,0.3)
+              inset 0 4px 20px rgba(255,255,255,0.1),
+              inset 0 -2px 10px rgba(0,0,0,0.3),
+              0 0 0 3px rgba(147,51,234,0.3),
+              0 4px 15px rgba(0,0,0,0.5)
             `,
           }}
         />
@@ -35,7 +35,7 @@ export default function InstructorCard({ name, title, imageSrc, linkedInUrl }: I
       {/* Instructor Image - Circular, half sticking out */}
       {imageSrc && (
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-          <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white/40 shadow-2xl ring-2 ring-emerald-500/40">
+          <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white/40 shadow-2xl ring-2 ring-purple-600">
             <Image
               src={imageSrc}
               alt={name}
@@ -49,10 +49,10 @@ export default function InstructorCard({ name, title, imageSrc, linkedInUrl }: I
 
       {/* Content with top padding to account for image */}
       <div className="relative z-10 mt-8 md:mt-12">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-[#F9FAFB] mb-2 text-center">
           {name}
         </h2>
-        <p className="text-sm md:text-base text-gray-700 leading-relaxed text-center mb-4">
+        <p className="text-sm md:text-base text-gray-300 leading-relaxed text-center mb-4">
           {title}
         </p>
         
@@ -67,11 +67,11 @@ export default function InstructorCard({ name, title, imageSrc, linkedInUrl }: I
               aria-label="LinkedIn Profile"
             >
               <Image
-                src="/LinkedIn.svg"
+                src="/LinkedIn_Logo.png"
                 alt="LinkedIn"
-                width={60}
+                width={120}
                 height={60}
-                className="w-12 h-12 md:w-16 md:h-16"
+                className="w-12 h-12 md:w-24 md:h-8"
               />
             </Link>
           </div>

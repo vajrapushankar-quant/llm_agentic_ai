@@ -22,7 +22,7 @@ function Navbar() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-                className: "fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-7xl mx-auto bg-white/10 backdrop-blur-sm rounded-full shadow-lg px-4 md:px-6 py-3 md:py-4 flex items-center justify-between",
+                className: "fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-7xl mx-auto bg-[#111827]/90 rounded-full shadow-lg px-4 md:px-6 py-3 md:py-4 flex items-center justify-between",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                         href: "#",
@@ -58,7 +58,7 @@ function Navbar() {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                         href: "#course",
-                                        className: "text-gray-700 hover:text-black transition-all duration-200 font-medium relative hover:underline underline-offset-4",
+                                        className: "text-[#F9FAFB] hover:opacity-80 transition-all duration-200 font-medium relative hover:underline underline-offset-4",
                                         children: "Course"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/Navbar.tsx",
@@ -67,7 +67,7 @@ function Navbar() {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                         href: "#journey",
-                                        className: "text-gray-700 hover:text-black transition-all duration-200 font-medium relative hover:underline underline-offset-4",
+                                        className: "text-[#F9FAFB] hover:opacity-80 transition-all duration-200 font-medium relative hover:underline underline-offset-4",
                                         children: "Journey"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/Navbar.tsx",
@@ -76,7 +76,7 @@ function Navbar() {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                         href: "#instructor",
-                                        className: "text-gray-700 hover:text-black transition-all duration-200 font-medium relative hover:underline underline-offset-4",
+                                        className: "text-[#F9FAFB] hover:opacity-80 transition-all duration-200 font-medium relative hover:underline underline-offset-4",
                                         children: "Instructor"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/Navbar.tsx",
@@ -85,7 +85,7 @@ function Navbar() {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                         href: "#faq",
-                                        className: "text-gray-700 hover:text-black transition-all duration-200 font-medium relative hover:underline underline-offset-4",
+                                        className: "text-[#F9FAFB] hover:opacity-80 transition-all duration-200 font-medium relative hover:underline underline-offset-4",
                                         children: "FAQ"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/Navbar.tsx",
@@ -100,7 +100,7 @@ function Navbar() {
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                 href: "#pricing",
-                                className: "bg-black text-white px-6 py-2.5 rounded-full font-medium hover:bg-gray-800 transition-colors whitespace-nowrap",
+                                className: "bg-[#9333EA] text-[#F9FAFB] px-6 py-2.5 rounded-full font-medium hover:bg-[#7E22CE] transition-colors whitespace-nowrap",
                                 children: "Enroll Now"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/Navbar.tsx",
@@ -119,21 +119,21 @@ function Navbar() {
                         "aria-label": "Toggle menu",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: `w-6 h-0.5 bg-gray-700 transition-all ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`
+                                className: `w-6 h-0.5 bg-[#F9FAFB] transition-all ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`
                             }, void 0, false, {
                                 fileName: "[project]/app/components/Navbar.tsx",
                                 lineNumber: 76,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: `w-6 h-0.5 bg-gray-700 transition-all ${isMenuOpen ? 'opacity-0' : ''}`
+                                className: `w-6 h-0.5 bg-[#F9FAFB] transition-all ${isMenuOpen ? 'opacity-0' : ''}`
                             }, void 0, false, {
                                 fileName: "[project]/app/components/Navbar.tsx",
                                 lineNumber: 77,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: `w-6 h-0.5 bg-gray-700 transition-all ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`
+                                className: `w-6 h-0.5 bg-[#F9FAFB] transition-all ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`
                             }, void 0, false, {
                                 fileName: "[project]/app/components/Navbar.tsx",
                                 lineNumber: 78,
@@ -158,7 +158,7 @@ function Navbar() {
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             href: "#course",
-                            className: "text-gray-700 hover:text-black transition-colors font-medium py-2",
+                            className: "text-gray-900 hover:text-gray-700 transition-colors font-medium py-2",
                             onClick: ()=>setIsMenuOpen(false),
                             children: "Course"
                         }, void 0, false, {
@@ -168,7 +168,7 @@ function Navbar() {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             href: "#journey",
-                            className: "text-gray-700 hover:text-black transition-colors font-medium py-2",
+                            className: "text-gray-900 hover:text-gray-700 transition-colors font-medium py-2",
                             onClick: ()=>setIsMenuOpen(false),
                             children: "Journey"
                         }, void 0, false, {
@@ -178,7 +178,7 @@ function Navbar() {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             href: "#instructor",
-                            className: "text-gray-700 hover:text-black transition-colors font-medium py-2",
+                            className: "text-gray-900 hover:text-gray-700 transition-colors font-medium py-2",
                             onClick: ()=>setIsMenuOpen(false),
                             children: "Instructor"
                         }, void 0, false, {
@@ -188,7 +188,7 @@ function Navbar() {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             href: "#faq",
-                            className: "text-gray-700 hover:text-black transition-colors font-medium py-2",
+                            className: "text-gray-900 hover:text-gray-700 transition-colors font-medium py-2",
                             onClick: ()=>setIsMenuOpen(false),
                             children: "FAQ"
                         }, void 0, false, {
@@ -198,7 +198,7 @@ function Navbar() {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             href: "#pricing",
-                            className: "bg-black text-white px-6 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors mt-2 text-center",
+                            className: "bg-[#9333EA] text-[#F9FAFB] px-6 py-3 rounded-full font-medium hover:bg-[#7E22CE] transition-colors mt-2 text-center",
                             onClick: ()=>setIsMenuOpen(false),
                             children: "Enroll Now"
                         }, void 0, false, {
@@ -246,29 +246,20 @@ function FaviconHandler() {
             const updateFavicon = {
                 "FaviconHandler.useEffect.updateFavicon": ()=>{
                     const link = document.querySelector("link[rel='icon']");
-                    const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
                     if (link) {
-                        link.href = isDark ? "/Q white.svg" : "/Q Black.svg";
+                        link.href = "/favicon.svg";
                     } else {
                         // Create favicon link if it doesn't exist
                         const newLink = document.createElement("link");
                         newLink.rel = "icon";
                         newLink.type = "image/svg+xml";
-                        newLink.href = isDark ? "/Q white.svg" : "/Q Black.svg";
+                        newLink.href = "/favicon.svg";
                         document.head.appendChild(newLink);
                     }
                 }
             }["FaviconHandler.useEffect.updateFavicon"];
             // Set initial favicon
             updateFavicon();
-            // Listen for color scheme changes
-            const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-            mediaQuery.addEventListener("change", updateFavicon);
-            return ({
-                "FaviconHandler.useEffect": ()=>{
-                    mediaQuery.removeEventListener("change", updateFavicon);
-                }
-            })["FaviconHandler.useEffect"];
         }
     }["FaviconHandler.useEffect"], []);
     return null;

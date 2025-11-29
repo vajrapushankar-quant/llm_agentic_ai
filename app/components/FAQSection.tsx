@@ -73,16 +73,16 @@ const faqs = [
 
 function FAQCard({ faq, isOpen, onToggle }: { faq: typeof faqs[0]; isOpen: boolean; onToggle: () => void }) {
   return (
-    <div className="bg-white/10 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
+    <div className="bg-gray-200/10 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
       <button
         onClick={onToggle}
-        className="w-full px-6 md:px-8 py-4 md:py-5 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
+        className="w-full px-6 md:px-8 py-4 md:py-5 text-left flex items-center justify-between hover:bg-gray-200/20 transition-colors"
       >
         <h3 className="text-lg md:text-xl font-semibold text-gray-900 pr-4">
           {faq.question}
         </h3>
         <svg
-          className={`w-5 h-5 md:w-6 md:h-6 text-gray-700 flex-shrink-0 transition-transform duration-200 ${
+          className={`w-5 h-5 md:w-6 md:h-6 text-gray-900 flex-shrink-0 transition-transform duration-200 ${
             isOpen ? "rotate-180" : ""
           }`}
           fill="none"
@@ -94,7 +94,7 @@ function FAQCard({ faq, isOpen, onToggle }: { faq: typeof faqs[0]; isOpen: boole
       </button>
       {isOpen && (
         <div className="px-6 md:px-8 pb-6 md:pb-8">
-          <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+          <p className="text-sm md:text-base text-gray-900 leading-relaxed">
             {faq.answer}
           </p>
         </div>
