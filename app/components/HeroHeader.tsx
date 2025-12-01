@@ -44,7 +44,7 @@ export default function HeroHeader() {
           {/* GIF - Mobile only (shown first on mobile) */}
           <div className="order-1 md:hidden flex justify-center w-full">
             <Image
-              src="/hero_header_animation II.gif"
+              src="/hero_header_animation III.gif"
               alt="Hero Animation"
               width={800}
               height={800}

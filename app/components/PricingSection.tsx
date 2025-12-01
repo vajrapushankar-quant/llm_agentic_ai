@@ -72,7 +72,7 @@ function PriceCard({ plan, onEnroll }: { plan: typeof pricingPlans[0]; onEnroll:
   const isAgenticAI = plan.id === 2;
   
   return (
-    <div className={`${isBundle ? 'bg-gray-900 scale-110 ring-4 ring-purple-600/30' : 'bg-gray-200/10 backdrop-blur-sm'} rounded-2xl shadow-lg ${isBundle ? 'p-7 md:p-10' : 'p-6 md:p-8'} flex flex-col h-full relative ${isBundle ? 'z-10' : ''}`}>
+    <div className={`${isBundle ? 'bg-gray-900 md:scale-110 ring-4 ring-purple-600/30' : 'bg-gray-200/10 backdrop-blur-sm'} rounded-2xl shadow-lg ${isBundle ? 'p-5 md:p-10' : 'p-5 md:p-8'} flex flex-col h-full relative ${isBundle ? 'z-10' : ''}`}>
       {plan.badge && (
         <div className="mb-4 text-center">
           <span className={`inline-block px-4 py-2 ${isBundle ? 'bg-purple-600 text-white' : 'bg-purple-600/20 text-purple-700'} rounded-full text-sm font-semibold`}>
@@ -81,13 +81,13 @@ function PriceCard({ plan, onEnroll }: { plan: typeof pricingPlans[0]; onEnroll:
         </div>
       )}
       
-      <h3 className={`text-2xl md:text-3xl font-bold ${isBundle ? 'text-white' : 'text-gray-900'} mb-2`}>
+      <h3 className={`text-xl md:text-3xl font-bold ${isBundle ? 'text-white' : 'text-gray-900'} mb-2`}>
         {plan.title}
       </h3>
       
       <div className="mb-4">
         <div className="flex items-baseline gap-2">
-          <span className={`text-3xl md:text-4xl font-bold ${isBundle ? 'text-white' : 'text-gray-900'}`}>{plan.price}</span>
+          <span className={`text-2xl md:text-4xl font-bold ${isBundle ? 'text-white' : 'text-gray-900'}`}>{plan.price}</span>
           {plan.originalPrice && (
             <span className={`text-lg ${isBundle ? 'text-gray-400' : 'text-gray-500'} line-through`}>{plan.originalPrice}</span>
           )}
@@ -131,7 +131,7 @@ function PriceCard({ plan, onEnroll }: { plan: typeof pricingPlans[0]; onEnroll:
       
       <button
         onClick={onEnroll}
-        className={`w-full ${isBundle ? 'bg-white text-gray-900 hover:bg-gray-100' : 'bg-gray-900 text-white hover:bg-gray-800'} px-6 py-3 rounded-full font-semibold transition-colors text-base md:text-lg mt-auto`}
+        className={`w-full ${isBundle ? 'bg-white text-gray-900 hover:bg-gray-100' : 'bg-gray-900 text-white hover:bg-gray-800'} px-4 md:px-6 py-2.5 md:py-3 rounded-full font-semibold transition-colors text-sm md:text-lg mt-auto`}
       >
         {plan.cta}
       </button>
@@ -441,7 +441,7 @@ export default function PricingSection() {
               className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 overflow-x-auto md:overflow-x-visible pb-4 md:pb-0 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
             >
               {pricingPlans.map((plan) => (
-                <div key={plan.id} className="flex-shrink-0 w-[85vw] md:w-auto snap-center">
+                <div key={plan.id} className="flex-shrink-0 w-[90vw] max-w-sm md:w-auto snap-center">
                   <PriceCard
                     plan={plan}
                     onEnroll={() => handleEnroll(plan.id)}

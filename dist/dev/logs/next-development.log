@@ -1,164 +1,55 @@
-[00:00:02.692] Server  LOG      ✓ Ready in 1962ms
-[00:00:57.639] Server  LOG      ○ Compiling / ...
-[00:01:00.745] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:13:40.852] Server  LOG      ✓ Compiled in 130ms
-[00:14:17.640] Server  LOG      ✓ Compiled in 121ms
-[00:14:32.919] Server  LOG      ✓ Compiled in 117ms
-[00:24:43.092] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:27:26.791] Server  LOG      ✓ Compiled in 385ms
-[00:27:28.028] Server  LOG      ✓ Compiled in 213ms
-[00:29:15.529] Server  LOG      ✓ Compiled in 472ms
-[00:29:18.341] Server  LOG      ✓ Compiled in 396ms
-[00:29:22.037] Server  LOG      ✓ Compiled in 289ms
-[00:29:24.938] Server  LOG      ✓ Compiled in 609ms
-[00:29:27.095] Server  LOG      ✓ Compiled in 331ms
-[00:35:08.399] Server  LOG      ✓ Compiled in 230ms
-[00:35:11.028] Server  LOG      ✓ Compiled in 202ms
-[00:35:58.136] Server  LOG      ✓ Compiled in 96ms
-[00:36:35.611] Server  LOG      ✓ Compiled in 300ms
-[00:36:37.388] Server  LOG      ✓ Compiled in 215ms
-[00:37:13.531] Server  LOG      ✓ Compiled in 326ms
-[00:37:23.371] Server  LOG      ✓ Compiled in 190ms
-[00:39:17.926] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:40:39.297] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:43:24.364] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:43:25.472] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:44:36.436] Server  LOG      ✓ Compiled in 1101ms
-[00:44:38.107] Server  LOG      ✓ Compiled in 1141ms
-[00:54:56.991] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:03:17.238] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:05:40.547] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:07:37.139] Server  LOG      ✓ Compiled in 404ms
-[01:07:39.022] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:07:40.957] Server  LOG      ✓ Compiled in 1627ms
-[01:07:43.261] Server  LOG      ✓ Compiled in 917ms
-[01:08:02.287] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:11:35.197] Server  LOG      ✓ Compiled in 2s
-[01:11:36.750] Server  LOG      ✓ Compiled in 398ms
-[01:11:49.617] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:11:58.531] Server  LOG      ✓ Compiled in 101ms
-[01:12:29.974] Server  LOG      ✓ Compiled in 480ms
-[01:14:41.543] Server  LOG      ✓ Compiled in 96ms
-[01:14:49.458] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:15:00.139] Server  LOG      ✓ Compiled in 167ms
-[01:15:18.308] Server  LOG      ✓ Compiled in 159ms
-[01:16:11.830] Server  LOG      ✓ Compiled in 164ms
-[01:17:54.124] Server  LOG      ✓ Compiled in 131ms
-[01:18:20.601] Server  LOG      ✓ Compiled in 109ms
-[01:19:36.547] Server  LOG      ✓ Compiled in 217ms
-[01:19:38.851] Server  LOG      ✓ Compiled in 265ms
-[01:19:40.638] Server  LOG      ✓ Compiled in 226ms
-[01:19:43.000] Server  LOG      ✓ Compiled in 217ms
-[01:34:19.688] Server  LOG      ✓ Compiled in 143ms
-[01:35:09.371] Server  LOG      ✓ Compiled in 233ms
-[01:35:28.149] Server  LOG      ✓ Compiled in 157ms
-[01:39:39.684] Server  LOG      ✓ Compiled in 161ms
-[01:40:10.995] Server  LOG      ✓ Compiled in 206ms
-[01:41:09.357] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:42:19.760] Server  LOG      ✓ Compiled in 106ms
-[01:42:26.754] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:42:58.449] Server  LOG      ✓ Compiled in 122ms
-[01:43:11.365] Server  LOG      ✓ Compiled in 152ms
-[01:43:11.477] Browser ERROR   uncaughtError: Error: Image with src "/LinkedIn_Logo.png" is missing required "width" property.
-[01:43:14.007] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[01:43:14.464] Server  LOG      ✓ Compiled in 94ms
-[01:43:14.467] Browser WARN    Image with src "http://localhost:3000/LinkedIn_Logo.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
-[01:43:15.060] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:43:15.852] Browser WARN    Image with src "http://localhost:3000/LinkedIn_Logo.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
-[01:43:34.540] Server  LOG      ✓ Compiled in 133ms
-[01:43:34.587] Browser ERROR   uncaughtError: Error: Image with src "/LinkedIn_Logo.png" is missing required "width" property.
-[01:43:43.466] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[01:43:43.793] Server  LOG      ✓ Compiled in 133ms
-[01:43:44.071] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:44:03.122] Server  LOG      ✓ Compiled in 95ms
-[01:54:10.032] Server  LOG      ✓ Compiled in 244ms
-[01:54:31.856] Server  LOG      ✓ Compiled in 131ms
-[01:54:39.653] Server  LOG      ✓ Compiled in 179ms
-[01:54:56.849] Server  LOG      ✓ Compiled in 123ms
-[01:55:01.923] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:55:10.066] Server  LOG      ✓ Compiled in 124ms
-[01:55:25.547] Server  LOG      ✓ Compiled in 131ms
-[01:55:33.637] Server  LOG      ✓ Compiled in 117ms
-[01:55:43.759] Server  LOG      ✓ Compiled in 167ms
-[01:57:38.122] Server  LOG      ✓ Compiled in 104ms
-[01:58:15.395] Server  LOG      ✓ Compiled in 116ms
-[01:58:24.137] Server  LOG      ✓ Compiled in 133ms
-[01:59:19.447] Server  LOG      ✓ Compiled in 111ms
-[02:03:52.371] Server  LOG      ✓ Compiled in 272ms
-[02:04:03.278] Server  LOG      ✓ Compiled in 197ms
-[02:04:14.184] Server  LOG      ✓ Compiled in 156ms
-[02:04:38.051] Server  LOG      ✓ Compiled in 104ms
-[02:05:30.823] Server  LOG      ✓ Compiled in 110ms
-[02:06:49.323] Server  LOG      ✓ Compiled in 107ms
-[02:07:06.575] Server  LOG      ✓ Compiled in 114ms
-[02:09:18.153] Server  LOG      ✓ Compiled in 110ms
-[02:10:14.002] Server  LOG      ✓ Compiled in 89ms
-[02:10:21.876] Server  LOG      ✓ Compiled in 178ms
-[02:10:53.597] Server  LOG      ✓ Compiled in 142ms
-[02:11:03.522] Server  LOG      ✓ Compiled in 117ms
-[02:12:58.052] Server  LOG      ✓ Compiled in 229ms
-[02:13:05.332] Server  LOG      ✓ Compiled in 200ms
-[02:13:35.233] Server  LOG      ✓ Compiled in 237ms
-[02:13:43.057] Server  LOG      ✓ Compiled in 207ms
-[02:15:10.737] Server  LOG      ✓ Compiled in 172ms
-[02:15:21.318] Server  LOG      ✓ Compiled in 334ms
-[02:15:28.556] Server  LOG      ✓ Compiled in 203ms
-[02:15:43.446] Server  LOG      ✓ Compiled in 164ms
-[02:16:15.157] Server  LOG      ✓ Compiled in 131ms
-[02:16:27.433] Server  LOG      ✓ Compiled in 146ms
-[02:18:09.968] Server  LOG      ✓ Compiled in 154ms
-[02:19:40.338] Server  LOG      ✓ Compiled in 160ms
-[02:19:49.012] Server  LOG      ✓ Compiled in 154ms
-[02:20:55.266] Server  LOG      ✓ Compiled in 182ms
-[02:22:52.792] Server  LOG      ✓ Compiled in 179ms
-[02:23:01.555] Server  LOG      ✓ Compiled in 124ms
-[02:23:23.881] Server  LOG      ✓ Compiled in 110ms
-[02:23:49.793] Server  LOG      ✓ Compiled in 97ms
-[02:23:58.700] Server  LOG      ✓ Compiled in 105ms
-[02:27:44.263] Server  LOG      ✓ Compiled in 819ms
-[02:28:28.615] Server  LOG      ✓ Compiled in 211ms
-[02:31:40.026] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:40:38.785] Server  LOG      ✓ Compiled in 466ms
-[02:41:57.979] Server  LOG      ✓ Compiled in 161ms
-[02:42:45.996] Server  LOG      ✓ Compiled in 168ms
-[02:42:51.616] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:42:59.430] Server  LOG      ✓ Compiled in 317ms
-[02:43:11.578] Server  LOG      ✓ Compiled in 102ms
-[02:43:18.168] Server  LOG      ✓ Compiled in 206ms
-[02:47:40.137] Server  LOG      ✓ Compiled in 153ms
-[02:47:46.200] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:48:33.740] Server  LOG      ✓ Compiled in 171ms
-[02:48:39.664] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:48:53.703] Server  LOG      ✓ Compiled in 130ms
-[02:49:12.231] Server  LOG      ✓ Compiled in 154ms
-[02:54:50.731] Server  LOG      ✓ Compiled in 201ms
-[03:29:29.277] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:29:30.176] Browser WARN    Image with src "/quick win animation.gif" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+[00:00:14.587] Server  LOG      ✓ Ready in 13.9s
+[00:01:51.453] Server  LOG      ○ Compiling / ...
+[00:01:54.504] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:55.053] Browser WARN    Image with src "http://localhost:3000/logos/google-gemini.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:04:36.299] Server  LOG      ✓ Compiled in 355ms
+[00:04:56.633] Server  LOG      ✓ Compiled in 299ms
+[00:05:28.924] Browser WARN    Image with src "http://localhost:3000/logos/chromadb.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:05:28.925] Browser WARN    Image with src "http://localhost:3000/logos/pinecone.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:05:28.925] Browser WARN    Image with src "http://localhost:3000/logos/huggingface.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:05:28.925] Browser WARN    Image with src "http://localhost:3000/logos/google-gemini.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:05:28.925] Browser WARN    Image with src "http://localhost:3000/logos/langsmith.avif" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:05:28.925] Browser WARN    Image with src "http://localhost:3000/logos/supabase.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:05:28.925] Browser WARN    Image with src "http://localhost:3000/logos/jupyter.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:05:28.925] Browser WARN    Image with src "http://localhost:3000/logos/llama.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:06:34.263] Server  LOG      ✓ Compiled in 208ms
+[00:06:37.192] Server  LOG      ✓ Compiled in 247ms
+[00:07:01.572] Browser WARN    Image with src "http://localhost:3000/logos/chromadb.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:07:01.572] Browser WARN    Image with src "http://localhost:3000/logos/pinecone.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:07:01.572] Browser WARN    Image with src "http://localhost:3000/logos/huggingface.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:07:01.572] Browser WARN    Image with src "http://localhost:3000/logos/google-gemini.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:07:01.572] Browser WARN    Image with src "http://localhost:3000/logos/langsmith.avif" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:07:01.572] Browser WARN    Image with src "http://localhost:3000/logos/supabase.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:07:01.573] Browser WARN    Image with src "http://localhost:3000/logos/jupyter.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:07:01.573] Browser WARN    Image with src "http://localhost:3000/logos/llama.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:07:11.659] Browser WARN    Image with src "http://localhost:3000/logos/chromadb.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:07:11.659] Browser WARN    Image with src "http://localhost:3000/logos/pinecone.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:07:11.659] Browser WARN    Image with src "http://localhost:3000/logos/huggingface.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:07:11.659] Browser WARN    Image with src "http://localhost:3000/logos/google-gemini.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:07:11.659] Browser WARN    Image with src "http://localhost:3000/logos/langsmith.avif" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:07:11.659] Browser WARN    Image with src "http://localhost:3000/logos/supabase.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:07:11.659] Browser WARN    Image with src "http://localhost:3000/logos/jupyter.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:07:11.659] Browser WARN    Image with src "http://localhost:3000/logos/llama.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:07:12.943] Browser WARN    Image with src "/quick win animation.gif" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
 Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[03:30:35.908] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:37:06.188] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:41:21.593] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:46:12.612] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:46:13.207] Browser WARN    Image with src "/quick win animation.gif" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[03:49:24.944] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:49:25.457] Browser WARN    Image with src "/quick win animation.gif" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[03:52:02.205] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:52:02.632] Browser WARN    Image with src "/quick win animation.gif" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[04:02:13.135] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[04:02:13.760] Browser WARN    Image with src "/quick win animation.gif" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[04:04:51.189] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[04:04:51.663] Browser WARN    Image with src "/quick win animation.gif" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[04:06:23.275] Server  LOG      ✓ Compiled in 417ms
-[04:06:46.841] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[04:13:18.298] Server  LOG      ✓ Compiled in 196ms
-[04:13:22.420] Server  LOG      ✓ Compiled in 162ms
-[04:13:24.432] Server  LOG      ✓ Compiled in 266ms
-[04:14:03.062] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[04:20:05.612] Server  LOG      ✓ Compiled in 798ms
-[04:20:08.871] Server  LOG      ✓ Compiled in 247ms
-[04:20:10.675] Server  LOG      ✓ Compiled in 202ms
+[00:13:06.208] Server  LOG      ✓ Compiled in 383ms
+[00:13:09.752] Server  LOG      ✓ Compiled in 521ms
+[00:13:38.946] Browser WARN    Image with src "http://localhost:3000/logos/chromadb.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:13:38.946] Browser WARN    Image with src "http://localhost:3000/logos/pinecone.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:13:38.946] Browser WARN    Image with src "http://localhost:3000/logos/huggingface.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:13:38.946] Browser WARN    Image with src "http://localhost:3000/logos/google-gemini.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:13:38.946] Browser WARN    Image with src "http://localhost:3000/logos/langsmith.avif" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:13:38.946] Browser WARN    Image with src "http://localhost:3000/logos/supabase.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:13:38.946] Browser WARN    Image with src "http://localhost:3000/logos/jupyter.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:13:38.946] Browser WARN    Image with src "http://localhost:3000/logos/llama.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:17:20.254] Server  LOG      ✓ Compiled in 232ms
+[00:17:35.480] Server  LOG      ✓ Compiled in 241ms
+[00:17:44.506] Server  LOG      ✓ Compiled in 298ms
+[00:33:22.113] Server  LOG      ✓ Compiled in 3.5s
+[00:33:30.745] Server  LOG      ✓ Compiled in 3.3s
+[00:54:35.765] Server  LOG      ✓ Compiled in 170ms
+[00:54:36.727] Server  LOG      ✓ Compiled in 184ms
+[00:56:28.726] Server  LOG      ✓ Compiled in 576ms
+[00:56:31.506] Server  LOG      ✓ Compiled in 303ms
+[01:00:22.028] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:00:22.766] Browser WARN    Image with src "http://localhost:3000/logos/google-gemini.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.

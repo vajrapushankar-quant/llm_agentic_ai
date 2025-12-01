@@ -12,14 +12,14 @@ interface InstructorCardProps {
 
 export default function InstructorCard({ name, title, imageSrc, linkedInUrl }: InstructorCardProps) {
   return (
-    <div className="relative rounded-2xl shadow-lg px-6 md:px-8 py-8 md:py-10 pt-20 md:pt-24 overflow-visible">
+    <div className="relative rounded-2xl shadow-lg px-6 md:px-8 py-8 md:py-10 pt-20 md:pt-24 overflow-visible mt-40 md:mt-0">
       {/* Card background - isolated blur layer */}
       <div className="absolute inset-0 bg-[#111827]/90 backdrop-blur-sm rounded-2xl z-0" />
       
       {/* Etched/recessed circular area - creates carved appearance */}
       {imageSrc && (
         <div 
-          className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-40 md:h-40 rounded-full z-0"
+          className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-[40%] w-32 h-32 md:w-40 md:h-40 rounded-full z-0"
           style={{
             background: 'radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 100%)',
             boxShadow: `
@@ -34,14 +34,15 @@ export default function InstructorCard({ name, title, imageSrc, linkedInUrl }: I
       
       {/* Instructor Image - Circular, half sticking out */}
       {imageSrc && (
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-[40%] z-10">
           <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white/40 shadow-2xl ring-2 ring-purple-600">
             <Image
               src={imageSrc}
               alt={name}
               fill
-              className="object-cover"
+              className="object-cover object-center"
               priority
+              sizes="(max-width: 768px) 128px, 160px"
             />
           </div>
         </div>
@@ -71,7 +72,7 @@ export default function InstructorCard({ name, title, imageSrc, linkedInUrl }: I
                 alt="LinkedIn"
                 width={120}
                 height={60}
-                className="w-12 h-12 md:w-24 md:h-8"
+                className="w-20 h-auto md:w-24 md:h-auto"
               />
             </Link>
           </div>

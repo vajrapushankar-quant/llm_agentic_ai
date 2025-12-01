@@ -81,7 +81,7 @@ function HeroHeader() {
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "order-1 md:hidden flex justify-center w-full",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                src: "/hero_header_animation II.gif",
+                                src: "/hero_header_animation III.gif",
                                 alt: "Hero Animation",
                                 width: 800,
                                 height: 800,
@@ -398,7 +398,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 function InstructorCard({ name, title, imageSrc, linkedInUrl }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "relative rounded-2xl shadow-lg px-6 md:px-8 py-8 md:py-10 pt-20 md:pt-24 overflow-visible",
+        className: "relative rounded-2xl shadow-lg px-6 md:px-8 py-8 md:py-10 pt-20 md:pt-24 overflow-visible mt-40 md:mt-0",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute inset-0 bg-[#111827]/90 backdrop-blur-sm rounded-2xl z-0"
@@ -408,7 +408,7 @@ function InstructorCard({ name, title, imageSrc, linkedInUrl }) {
                 columnNumber: 7
             }, this),
             imageSrc && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-40 md:h-40 rounded-full z-0",
+                className: "absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-[40%] w-32 h-32 md:w-40 md:h-40 rounded-full z-0",
                 style: {
                     background: 'radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 100%)',
                     boxShadow: `
@@ -424,15 +424,16 @@ function InstructorCard({ name, title, imageSrc, linkedInUrl }) {
                 columnNumber: 9
             }, this),
             imageSrc && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10",
+                className: "absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-[40%] z-10",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white/40 shadow-2xl ring-2 ring-purple-600",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                         src: imageSrc,
                         alt: name,
                         fill: true,
-                        className: "object-cover",
-                        priority: true
+                        className: "object-cover object-center",
+                        priority: true,
+                        sizes: "(max-width: 768px) 128px, 160px"
                     }, void 0, false, {
                         fileName: "[project]/app/components/InstructorCard.tsx",
                         lineNumber: 39,
@@ -456,7 +457,7 @@ function InstructorCard({ name, title, imageSrc, linkedInUrl }) {
                         children: name
                     }, void 0, false, {
                         fileName: "[project]/app/components/InstructorCard.tsx",
-                        lineNumber: 52,
+                        lineNumber: 53,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -464,7 +465,7 @@ function InstructorCard({ name, title, imageSrc, linkedInUrl }) {
                         children: title
                     }, void 0, false, {
                         fileName: "[project]/app/components/InstructorCard.tsx",
-                        lineNumber: 55,
+                        lineNumber: 56,
                         columnNumber: 9
                     }, this),
                     linkedInUrl && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -480,26 +481,26 @@ function InstructorCard({ name, title, imageSrc, linkedInUrl }) {
                                 alt: "LinkedIn",
                                 width: 120,
                                 height: 60,
-                                className: "w-12 h-12 md:w-24 md:h-8"
+                                className: "w-20 h-auto md:w-24 md:h-auto"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/InstructorCard.tsx",
-                                lineNumber: 69,
+                                lineNumber: 70,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/components/InstructorCard.tsx",
-                            lineNumber: 62,
+                            lineNumber: 63,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/InstructorCard.tsx",
-                        lineNumber: 61,
+                        lineNumber: 62,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/components/InstructorCard.tsx",
-                lineNumber: 51,
+                lineNumber: 52,
                 columnNumber: 7
             }, this)
         ]
@@ -696,7 +697,7 @@ function InstructorSection() {
         id: "instructor",
         className: "relative w-full h-screen overflow-hidden",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "relative z-10 h-full flex items-center px-4 md:px-8 lg:px-12 xl:px-16 pt-16 md:pt-0 md:items-center",
+            className: "relative z-10 h-full flex items-center px-4 md:px-8 lg:px-12 xl:px-16 pt-32 md:pt-0 md:items-center",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12 lg:items-center",
                 children: [
@@ -1698,7 +1699,7 @@ function PriceCard({ plan, onEnroll }) {
     const isBundle = plan.id === 3;
     const isAgenticAI = plan.id === 2;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: `${isBundle ? 'bg-gray-900 scale-110 ring-4 ring-purple-600/30' : 'bg-gray-200/10 backdrop-blur-sm'} rounded-2xl shadow-lg ${isBundle ? 'p-7 md:p-10' : 'p-6 md:p-8'} flex flex-col h-full relative ${isBundle ? 'z-10' : ''}`,
+        className: `${isBundle ? 'bg-gray-900 md:scale-110 ring-4 ring-purple-600/30' : 'bg-gray-200/10 backdrop-blur-sm'} rounded-2xl shadow-lg ${isBundle ? 'p-5 md:p-10' : 'p-5 md:p-8'} flex flex-col h-full relative ${isBundle ? 'z-10' : ''}`,
         children: [
             plan.badge && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "mb-4 text-center",
@@ -1716,7 +1717,7 @@ function PriceCard({ plan, onEnroll }) {
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                className: `text-2xl md:text-3xl font-bold ${isBundle ? 'text-white' : 'text-gray-900'} mb-2`,
+                className: `text-xl md:text-3xl font-bold ${isBundle ? 'text-white' : 'text-gray-900'} mb-2`,
                 children: plan.title
             }, void 0, false, {
                 fileName: "[project]/app/components/PricingSection.tsx",
@@ -1730,7 +1731,7 @@ function PriceCard({ plan, onEnroll }) {
                         className: "flex items-baseline gap-2",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: `text-3xl md:text-4xl font-bold ${isBundle ? 'text-white' : 'text-gray-900'}`,
+                                className: `text-2xl md:text-4xl font-bold ${isBundle ? 'text-white' : 'text-gray-900'}`,
                                 children: plan.price
                             }, void 0, false, {
                                 fileName: "[project]/app/components/PricingSection.tsx",
@@ -1913,7 +1914,7 @@ function PriceCard({ plan, onEnroll }) {
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                 onClick: onEnroll,
-                className: `w-full ${isBundle ? 'bg-white text-gray-900 hover:bg-gray-100' : 'bg-gray-900 text-white hover:bg-gray-800'} px-6 py-3 rounded-full font-semibold transition-colors text-base md:text-lg mt-auto`,
+                className: `w-full ${isBundle ? 'bg-white text-gray-900 hover:bg-gray-100' : 'bg-gray-900 text-white hover:bg-gray-800'} px-4 md:px-6 py-2.5 md:py-3 rounded-full font-semibold transition-colors text-sm md:text-lg mt-auto`,
                 children: plan.cta
             }, void 0, false, {
                 fileName: "[project]/app/components/PricingSection.tsx",
@@ -2393,7 +2394,7 @@ function PricingSection() {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 overflow-x-auto md:overflow-x-visible pb-4 md:pb-0 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]",
                                 children: pricingPlans.map((plan)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex-shrink-0 w-[85vw] md:w-auto snap-center",
+                                        className: "flex-shrink-0 w-[90vw] max-w-sm md:w-auto snap-center",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(PriceCard, {
                                             plan: plan,
                                             onEnroll: ()=>handleEnroll(plan.id)

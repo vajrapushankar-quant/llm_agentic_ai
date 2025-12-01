@@ -52,7 +52,7 @@ export default function InstructorSection() {
       </div> */}
       
       {/* Main content area */}
-      <div className="relative z-10 h-full flex items-center px-4 md:px-8 lg:px-12 xl:px-16 pt-16 md:pt-0 md:items-center">
+      <div className="relative z-10 h-full flex items-center px-4 md:px-8 lg:px-12 xl:px-16 pt-32 md:pt-0 md:items-center">
         <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12 lg:items-center">
           {/* Left Card - Smaller */}
           <div className="lg:col-span-1 lg:flex lg:items-center">
