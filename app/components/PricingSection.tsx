@@ -221,6 +221,17 @@ function EnrollmentModal({
       // Submit to Google Sheets before redirecting
       await submitToGoogleSheets();
 
+      // Fire Meta Pixel Lead event
+    if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
+      (window as any).fbq("track", "Lead", {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        planId: planId,
+        planName: planName
+      });
+    }
+
       // Store customer data in localStorage for reference
       localStorage.setItem('customerData', JSON.stringify({
         name: formData.name,
