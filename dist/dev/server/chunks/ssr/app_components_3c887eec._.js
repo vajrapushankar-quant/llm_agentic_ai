@@ -112,7 +112,7 @@ function HeroHeader() {
                                             style: {
                                                 fontFamily: '"Proxima Nova", sans-serif'
                                             },
-                                            children: "5 weeks to"
+                                            children: "10 weeks to"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/HeroHeader.tsx",
                                             lineNumber: 60,

@@ -61,7 +61,7 @@ export default function HeroHeader() {
                 className="text-gray-700 font-bold text-base md:text-[1.75rem]"
                 style={{ fontFamily: '"Proxima Nova", sans-serif' }}
               >
-                5 weeks to
+                10 weeks to
               </p>
               <h1 
                 className="font-bold text-gray-900 leading-tight text-3xl md:text-[clamp(3.375rem,6vw,6.75rem)]"

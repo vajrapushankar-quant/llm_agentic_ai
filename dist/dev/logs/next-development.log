@@ -1,55 +1,48 @@
-[00:00:14.587] Server  LOG      ✓ Ready in 13.9s
-[00:01:51.453] Server  LOG      ○ Compiling / ...
-[00:01:54.504] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:55.053] Browser WARN    Image with src "http://localhost:3000/logos/google-gemini.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:04:36.299] Server  LOG      ✓ Compiled in 355ms
-[00:04:56.633] Server  LOG      ✓ Compiled in 299ms
-[00:05:28.924] Browser WARN    Image with src "http://localhost:3000/logos/chromadb.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:05:28.925] Browser WARN    Image with src "http://localhost:3000/logos/pinecone.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:05:28.925] Browser WARN    Image with src "http://localhost:3000/logos/huggingface.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:05:28.925] Browser WARN    Image with src "http://localhost:3000/logos/google-gemini.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:05:28.925] Browser WARN    Image with src "http://localhost:3000/logos/langsmith.avif" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:05:28.925] Browser WARN    Image with src "http://localhost:3000/logos/supabase.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:05:28.925] Browser WARN    Image with src "http://localhost:3000/logos/jupyter.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:05:28.925] Browser WARN    Image with src "http://localhost:3000/logos/llama.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:06:34.263] Server  LOG      ✓ Compiled in 208ms
-[00:06:37.192] Server  LOG      ✓ Compiled in 247ms
-[00:07:01.572] Browser WARN    Image with src "http://localhost:3000/logos/chromadb.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:07:01.572] Browser WARN    Image with src "http://localhost:3000/logos/pinecone.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:07:01.572] Browser WARN    Image with src "http://localhost:3000/logos/huggingface.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:07:01.572] Browser WARN    Image with src "http://localhost:3000/logos/google-gemini.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:07:01.572] Browser WARN    Image with src "http://localhost:3000/logos/langsmith.avif" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:07:01.572] Browser WARN    Image with src "http://localhost:3000/logos/supabase.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:07:01.573] Browser WARN    Image with src "http://localhost:3000/logos/jupyter.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:07:01.573] Browser WARN    Image with src "http://localhost:3000/logos/llama.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:07:11.659] Browser WARN    Image with src "http://localhost:3000/logos/chromadb.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:07:11.659] Browser WARN    Image with src "http://localhost:3000/logos/pinecone.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:07:11.659] Browser WARN    Image with src "http://localhost:3000/logos/huggingface.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:07:11.659] Browser WARN    Image with src "http://localhost:3000/logos/google-gemini.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:07:11.659] Browser WARN    Image with src "http://localhost:3000/logos/langsmith.avif" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:07:11.659] Browser WARN    Image with src "http://localhost:3000/logos/supabase.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:07:11.659] Browser WARN    Image with src "http://localhost:3000/logos/jupyter.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:07:11.659] Browser WARN    Image with src "http://localhost:3000/logos/llama.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:07:12.943] Browser WARN    Image with src "/quick win animation.gif" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:13:06.208] Server  LOG      ✓ Compiled in 383ms
-[00:13:09.752] Server  LOG      ✓ Compiled in 521ms
-[00:13:38.946] Browser WARN    Image with src "http://localhost:3000/logos/chromadb.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:13:38.946] Browser WARN    Image with src "http://localhost:3000/logos/pinecone.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:13:38.946] Browser WARN    Image with src "http://localhost:3000/logos/huggingface.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:13:38.946] Browser WARN    Image with src "http://localhost:3000/logos/google-gemini.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:13:38.946] Browser WARN    Image with src "http://localhost:3000/logos/langsmith.avif" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:13:38.946] Browser WARN    Image with src "http://localhost:3000/logos/supabase.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:13:38.946] Browser WARN    Image with src "http://localhost:3000/logos/jupyter.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:13:38.946] Browser WARN    Image with src "http://localhost:3000/logos/llama.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:17:20.254] Server  LOG      ✓ Compiled in 232ms
-[00:17:35.480] Server  LOG      ✓ Compiled in 241ms
-[00:17:44.506] Server  LOG      ✓ Compiled in 298ms
-[00:33:22.113] Server  LOG      ✓ Compiled in 3.5s
-[00:33:30.745] Server  LOG      ✓ Compiled in 3.3s
-[00:54:35.765] Server  LOG      ✓ Compiled in 170ms
-[00:54:36.727] Server  LOG      ✓ Compiled in 184ms
-[00:56:28.726] Server  LOG      ✓ Compiled in 576ms
-[00:56:31.506] Server  LOG      ✓ Compiled in 303ms
-[01:00:22.028] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:00:22.766] Browser WARN    Image with src "http://localhost:3000/logos/google-gemini.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:15.400] Server  LOG      ✓ Ready in 14.7s
+[00:00:28.429] Server  LOG      ○ Compiling / ...
+[00:00:48.265] Server  WARN     ⚠ [next]/internal/font/google/inter_5972bc34.module.css
+Error while requesting resource
+There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/inter_5972bc34.module.css
+    [next]/internal/font/google/inter_5972bc34.js
+    ./app/layout.tsx
+
+
+[00:00:48.266] Server  WARN     ⚠ [next]/internal/font/google/inter_5972bc34.module.css
+next/font: warning:
+Failed to download `Inter` from Google Fonts. Using fallback font instead.
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/inter_5972bc34.module.css
+    [next]/internal/font/google/inter_5972bc34.js
+    ./app/layout.tsx
+
+
+[00:00:48.978] Server  WARN     ⚠ [next]/internal/font/google/inter_5972bc34.module.css
+Error while requesting resource
+There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/inter_5972bc34.module.css
+    [next]/internal/font/google/inter_5972bc34.js
+    ./app/layout.tsx
+
+
+[00:00:48.978] Server  WARN     ⚠ [next]/internal/font/google/inter_5972bc34.module.css
+next/font: warning:
+Failed to download `Inter` from Google Fonts. Using fallback font instead.
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/inter_5972bc34.module.css
+    [next]/internal/font/google/inter_5972bc34.js
+    ./app/layout.tsx
+
+
+[00:00:49.014] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:49.270] Browser WARN    Image with src "http://localhost:3000/logos/google-gemini.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
