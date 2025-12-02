@@ -46,6 +46,8 @@ fbq('track', 'PageView');`,
           />
         </noscript>
         {/* End Meta Pixel Code */}
+        {/* Meta Domain Verification Code */}
+        <meta name="facebook-domain-verification" content="p08yl33hy3xjqaw5bgzny4x2d3jzjc" />
       </head>
       <body className={`${inter.className} antialiased bg-[#F9FAFB]`}>
         <FaviconHandler />
