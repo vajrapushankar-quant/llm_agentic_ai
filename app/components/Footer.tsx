@@ -78,6 +78,30 @@ export default function Footer() {
           </a>
         </div>
 
+        {/* Policy Links */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm">
+          <Link
+            href="/refund-policy"
+            className="text-gray-400 hover:text-white transition-colors"
+          >
+            Refund Policy
+          </Link>
+          <span className="text-gray-600">|</span>
+          <Link
+            href="/privacy-policy"
+            className="text-gray-400 hover:text-white transition-colors"
+          >
+            Privacy Policy
+          </Link>
+          <span className="text-gray-600">|</span>
+          <Link
+            href="/terms-and-conditions"
+            className="text-gray-400 hover:text-white transition-colors"
+          >
+            Terms & Conditions
+          </Link>
+        </div>
+
         {/* Copyright */}
         <div className="mt-4 text-center">
           <p className="text-sm text-gray-400">
