@@ -170,7 +170,7 @@ function WeekCard({ week, isOpen, onToggle }: { week: typeof courses[0]['weeks']
         onClick={onToggle}
         className="w-full px-6 md:px-8 py-4 md:py-5 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
       >
-        <h3 className="text-lg md:text-xl font-semibold text-gray-900 pr-4">
+        <h3 className="text-lg md:text-xl lg:text-base xl:text-xl font-semibold text-gray-900 pr-4">
           {(() => {
             const parts = week.title.split(' — ');
             if (parts.length > 1) {
@@ -229,19 +229,19 @@ export default function CourseSection() {
     <div id="course" className="relative w-full min-h-screen overflow-hidden">
       
       {/* Main content area */}
-      <div className="relative z-10 min-h-screen flex items-start px-4 md:px-8 lg:px-12 xl:px-16 pt-16 md:pt-8 md:items-start overflow-y-auto">
+      <div className="relative z-10 min-h-screen flex items-start px-4 md:px-8 lg:px-12 xl:px-16 pt-20 lg:pt-24 xl:pt-8 md:items-start overflow-y-auto">
         <div className="w-full max-w-7xl mx-auto py-8 md:py-12">
           {courses.map((course) => (
             <div key={course.id} className="mb-16 md:mb-20 last:mb-0">
               {/* Heading Section */}
               <div className="mb-8 md:mb-12 text-center">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
+                <h2 className="text-3xl md:text-4xl lg:text-3xl xl:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
                   {course.title}
                 </h2>
-                <p className="text-base md:text-lg lg:text-xl text-gray-900 mb-4 md:mb-6 max-w-3xl mx-auto">
+                <p className="text-base md:text-lg lg:text-base xl:text-xl text-gray-900 mb-4 md:mb-6 max-w-3xl mx-auto">
                   {course.description}
                 </p>
-                <p className="text-sm md:text-base text-gray-700">
+                <p className="text-sm md:text-base lg:text-sm xl:text-base text-gray-700">
                   {course.cohortInfo}
                 </p>
               </div>

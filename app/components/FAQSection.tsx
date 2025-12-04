@@ -78,7 +78,7 @@ function FAQCard({ faq, isOpen, onToggle }: { faq: typeof faqs[0]; isOpen: boole
         onClick={onToggle}
         className="w-full px-6 md:px-8 py-4 md:py-5 text-left flex items-center justify-between hover:bg-gray-200/20 transition-colors"
       >
-        <h3 className="text-lg md:text-xl font-semibold text-gray-900 pr-4">
+        <h3 className="text-lg md:text-xl lg:text-base xl:text-xl font-semibold text-gray-900 pr-4">
           {faq.question}
         </h3>
         <svg
@@ -120,11 +120,11 @@ export default function FAQSection() {
     <div id="faq" className="relative w-full min-h-screen overflow-hidden">
       
       {/* Main content area */}
-      <div className="relative z-10 min-h-screen flex items-start px-4 md:px-8 lg:px-12 xl:px-16 pt-16 md:pt-8 md:items-start overflow-y-auto">
+      <div className="relative z-10 min-h-screen flex items-start px-4 md:px-8 lg:px-12 xl:px-16 pt-20 lg:pt-24 xl:pt-8 md:items-start overflow-y-auto">
         <div className="w-full max-w-7xl mx-auto py-8 md:py-12">
           {/* Heading Section */}
           <div className="mb-8 md:mb-12 text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-3xl xl:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
               ⭐ FAQ SECTION
             </h2>
           </div>

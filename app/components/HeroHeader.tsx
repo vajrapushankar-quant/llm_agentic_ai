@@ -39,8 +39,8 @@ export default function HeroHeader() {
       </div>
       
       {/* Main content area */}
-      <div className="relative z-10 h-full flex items-center px-4 md:px-8 lg:px-12 xl:px-16 pt-16 md:pt-0 md:items-center">
-        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 lg:gap-12 items-center md:items-center">
+      <div className="relative z-10 h-full flex items-center px-4 md:px-8 lg:px-12 xl:px-16 pt-20 lg:pt-24 xl:pt-0 md:items-center">
+        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 lg:gap-8 xl:gap-12 items-center md:items-center">
           {/* GIF - Mobile only (shown first on mobile) */}
           <div className="order-1 md:hidden flex justify-center w-full">
             <Image
@@ -55,16 +55,16 @@ export default function HeroHeader() {
           </div>
           
           {/* Text Content - Mobile: order 2, Desktop: order 1 */}
-          <div className="order-2 lg:order-1 space-y-4 md:space-y-6" style={{ fontFamily: '"Proxima Nova", sans-serif' }}>
+          <div className="order-2 lg:order-1 space-y-3 md:space-y-6 lg:space-y-4 xl:space-y-6" style={{ fontFamily: '"Proxima Nova", sans-serif' }}>
             <div className="space-y-0.5">
               <p 
-                className="text-gray-700 font-bold text-base md:text-[1.75rem]"
+                className="text-gray-700 font-bold text-base md:text-[1.75rem] lg:text-xl xl:text-[1.75rem]"
                 style={{ fontFamily: '"Proxima Nova", sans-serif' }}
               >
                 10 weeks to
               </p>
               <h1 
-                className="font-bold text-gray-900 leading-tight text-3xl md:text-[clamp(3.375rem,6vw,6.75rem)]"
+                className="font-bold text-gray-900 leading-tight text-3xl md:text-5xl lg:text-4xl xl:text-6xl 2xl:text-7xl"
                 style={{ fontFamily: '"Proxima Nova", sans-serif' }}
               >
                 <span className="text-gray-900">Agentic AI</span>{" "}
@@ -74,13 +74,13 @@ export default function HeroHeader() {
             
             <div className="space-y-1 text-gray-700">
               <p 
-                className="text-sm md:text-[1.25rem]"
+                className="text-sm md:text-[1.25rem] lg:text-base xl:text-[1.25rem]"
                 style={{ fontFamily: '"Proxima Nova", sans-serif' }}
               >
                 January 26 Cohort
               </p>
               <p 
-                className="text-sm md:text-[1.25rem]"
+                className="text-sm md:text-[1.25rem] lg:text-base xl:text-[1.25rem]"
                 style={{ fontFamily: '"Proxima Nova", sans-serif' }}
               >
                 Instructor: Girija Shankar Vajrapu
@@ -88,7 +88,7 @@ export default function HeroHeader() {
             </div>
             
             <p 
-              className="text-gray-700 max-w-2xl font-bold text-base md:text-[1.5rem]"
+              className="text-gray-700 max-w-2xl font-bold text-base md:text-[1.5rem] lg:text-lg xl:text-[1.5rem]"
               style={{ fontFamily: '"Proxima Nova", sans-serif' }}
             >
               Build Autonomous Systems Using Generative AI, LLMs & Multi-Agent Workflows
@@ -97,7 +97,7 @@ export default function HeroHeader() {
             {/* Enroll Now Button - Mobile: full width, reduced height, Desktop: normal */}
             <button 
               onClick={scrollToPricing}
-              className="w-full md:w-auto bg-[#111827]/90 text-[#F9FAFB] px-6 md:px-8 py-2.5 md:py-3 rounded-full font-medium hover:bg-[#111827] transition-colors text-base md:text-[1.5rem]"
+              className="w-full md:w-auto bg-[#111827]/90 text-[#F9FAFB] px-6 md:px-8 py-2.5 md:py-3 rounded-full font-medium hover:bg-[#111827] transition-colors text-base md:text-[1.5rem] lg:text-base xl:text-[1.5rem]"
               style={{ fontFamily: '"Proxima Nova", sans-serif' }}
             >
               Enroll Now
@@ -150,7 +150,7 @@ export default function HeroHeader() {
               alt="Hero Animation"
               width={800}
               height={800}
-              className="w-auto h-auto object-contain max-h-[70vh] lg:max-h-[75vh]"
+              className="w-auto h-auto object-contain max-h-[60vh] lg:max-h-[65vh] xl:max-h-[75vh]"
               priority
               unoptimized
             />

@@ -81,13 +81,13 @@ function PriceCard({ plan, onEnroll }: { plan: typeof pricingPlans[0]; onEnroll:
         </div>
       )}
       
-      <h3 className={`text-xl md:text-3xl font-bold ${isBundle ? 'text-white' : 'text-gray-900'} mb-2`}>
+      <h3 className={`text-xl md:text-3xl lg:text-2xl xl:text-3xl font-bold ${isBundle ? 'text-white' : 'text-gray-900'} mb-2`}>
         {plan.title}
       </h3>
       
       <div className="mb-4">
         <div className="flex items-baseline gap-2">
-          <span className={`text-2xl md:text-4xl font-bold ${isBundle ? 'text-white' : 'text-gray-900'}`}>{plan.price}</span>
+          <span className={`text-2xl md:text-4xl lg:text-3xl xl:text-4xl font-bold ${isBundle ? 'text-white' : 'text-gray-900'}`}>{plan.price}</span>
           {plan.originalPrice && (
             <span className={`text-lg ${isBundle ? 'text-gray-400' : 'text-gray-500'} line-through`}>{plan.originalPrice}</span>
           )}
@@ -432,14 +432,14 @@ export default function PricingSection() {
       <div id="pricing" className="relative w-full min-h-screen overflow-hidden">
         
         {/* Main content area */}
-        <div className="relative z-10 min-h-screen flex items-start px-4 md:px-8 lg:px-12 xl:px-16 pt-16 md:pt-8 md:items-start overflow-y-auto">
+        <div className="relative z-10 min-h-screen flex items-start px-4 md:px-8 lg:px-12 xl:px-16 pt-20 lg:pt-24 xl:pt-8 md:items-start overflow-y-auto">
           <div className="w-full max-w-7xl mx-auto py-8 md:py-12">
             {/* Heading Section */}
             <div className="mb-8 md:mb-12 text-center">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-3xl xl:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
                 Choose Your Learning Path
               </h2>
-              <p className="text-base md:text-lg text-gray-700 max-w-3xl mx-auto">
+              <p className="text-base md:text-lg lg:text-base xl:text-lg text-gray-700 max-w-3xl mx-auto">
                 Select the course that best fits your goals and start building AI systems today.
               </p>
             </div>

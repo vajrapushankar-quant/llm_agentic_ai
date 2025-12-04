@@ -1,4 +1,10 @@
-[00:00:05.093] Server  LOG      ✓ Ready in 4.1s
-[00:00:12.179] Server  LOG      ○ Compiling / ...
-[00:00:14.807] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:39.046] Server  LOG      ✓ Compiled in 337ms
+[00:00:02.012] Server  LOG      ✓ Ready in 1521ms
+[00:00:32.638] Server  LOG      ○ Compiling / ...
+[00:00:36.025] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:24.697] Server  LOG      ✓ Compiled in 533ms
+[00:04:27.087] Server  LOG      ✓ Compiled in 388ms
+[00:04:28.947] Server  LOG      ✓ Compiled in 283ms
+[00:04:30.961] Server  LOG      ✓ Compiled in 288ms
+[00:04:35.487] Server  LOG      ✓ Compiled in 237ms
+[00:04:40.561] Browser ERROR   uncaughtError: Error: An unexpected Turbopack error occurred. Please see the output of `next dev` for more details.
+[00:14:07.960] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

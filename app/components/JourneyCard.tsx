@@ -19,17 +19,17 @@ export default function JourneyCard({ title, description, items, animationSrc }:
           alt={title}
           width={600}
           height={600}
-          className="w-auto h-auto object-contain max-h-[40vh] md:max-h-[50vh]"
+          className="w-auto h-auto object-contain max-h-[40vh] md:max-h-[50vh] lg:max-h-[45vh] xl:max-h-[50vh]"
           unoptimized
         />
       </div>
 
       {/* Content Section */}
       <div className="flex-1 w-full md:w-1/2 space-y-4 md:space-y-6">
-        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
+        <h3 className="text-2xl md:text-3xl lg:text-2xl xl:text-4xl font-bold text-gray-900">
           {title}
         </h3>
-        <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+        <p className="text-base md:text-lg lg:text-base xl:text-lg text-gray-700 leading-relaxed">
           {description}
         </p>
         <ul className="space-y-2 md:space-y-3">

@@ -196,7 +196,7 @@ export default function AiJourneySection() {
       </div> */}
       
       {/* Main content area */}
-      <div className="relative z-10 h-full flex items-center justify-center px-4 md:px-8 lg:px-12 xl:px-16">
+      <div className="relative z-10 h-full flex items-center justify-center px-4 md:px-8 lg:px-12 xl:px-16 pt-20 lg:pt-24 xl:pt-0">
         {/* Mobile: Show cards with peek effect */}
         <div className="relative w-full max-w-7xl md:hidden flex items-center justify-center">
           {/* Previous card peek (left edge) */}

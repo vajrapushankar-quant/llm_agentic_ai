@@ -74,9 +74,9 @@ function HeroHeader() {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "relative z-10 h-full flex items-center px-4 md:px-8 lg:px-12 xl:px-16 pt-16 md:pt-0 md:items-center",
+                className: "relative z-10 h-full flex items-center px-4 md:px-8 lg:px-12 xl:px-16 pt-20 lg:pt-24 xl:pt-0 md:items-center",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 lg:gap-12 items-center md:items-center",
+                    className: "w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 lg:gap-8 xl:gap-12 items-center md:items-center",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "order-1 md:hidden flex justify-center w-full",
@@ -99,7 +99,7 @@ function HeroHeader() {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "order-2 lg:order-1 space-y-4 md:space-y-6",
+                            className: "order-2 lg:order-1 space-y-3 md:space-y-6 lg:space-y-4 xl:space-y-6",
                             style: {
                                 fontFamily: '"Proxima Nova", sans-serif'
                             },
@@ -108,7 +108,7 @@ function HeroHeader() {
                                     className: "space-y-0.5",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "text-gray-700 font-bold text-base md:text-[1.75rem]",
+                                            className: "text-gray-700 font-bold text-base md:text-[1.75rem] lg:text-xl xl:text-[1.75rem]",
                                             style: {
                                                 fontFamily: '"Proxima Nova", sans-serif'
                                             },
@@ -119,7 +119,7 @@ function HeroHeader() {
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                            className: "font-bold text-gray-900 leading-tight text-3xl md:text-[clamp(3.375rem,6vw,6.75rem)]",
+                                            className: "font-bold text-gray-900 leading-tight text-3xl md:text-5xl lg:text-4xl xl:text-6xl 2xl:text-7xl",
                                             style: {
                                                 fontFamily: '"Proxima Nova", sans-serif'
                                             },
@@ -157,7 +157,7 @@ function HeroHeader() {
                                     className: "space-y-1 text-gray-700",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "text-sm md:text-[1.25rem]",
+                                            className: "text-sm md:text-[1.25rem] lg:text-base xl:text-[1.25rem]",
                                             style: {
                                                 fontFamily: '"Proxima Nova", sans-serif'
                                             },
@@ -168,7 +168,7 @@ function HeroHeader() {
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "text-sm md:text-[1.25rem]",
+                                            className: "text-sm md:text-[1.25rem] lg:text-base xl:text-[1.25rem]",
                                             style: {
                                                 fontFamily: '"Proxima Nova", sans-serif'
                                             },
@@ -185,7 +185,7 @@ function HeroHeader() {
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-gray-700 max-w-2xl font-bold text-base md:text-[1.5rem]",
+                                    className: "text-gray-700 max-w-2xl font-bold text-base md:text-[1.5rem] lg:text-lg xl:text-[1.5rem]",
                                     style: {
                                         fontFamily: '"Proxima Nova", sans-serif'
                                     },
@@ -197,7 +197,7 @@ function HeroHeader() {
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     onClick: scrollToPricing,
-                                    className: "w-full md:w-auto bg-[#111827]/90 text-[#F9FAFB] px-6 md:px-8 py-2.5 md:py-3 rounded-full font-medium hover:bg-[#111827] transition-colors text-base md:text-[1.5rem]",
+                                    className: "w-full md:w-auto bg-[#111827]/90 text-[#F9FAFB] px-6 md:px-8 py-2.5 md:py-3 rounded-full font-medium hover:bg-[#111827] transition-colors text-base md:text-[1.5rem] lg:text-base xl:text-[1.5rem]",
                                     style: {
                                         fontFamily: '"Proxima Nova", sans-serif'
                                     },
@@ -282,7 +282,7 @@ function HeroHeader() {
                                 alt: "Hero Animation",
                                 width: 800,
                                 height: 800,
-                                className: "w-auto h-auto object-contain max-h-[70vh] lg:max-h-[75vh]",
+                                className: "w-auto h-auto object-contain max-h-[60vh] lg:max-h-[65vh] xl:max-h-[75vh]",
                                 priority: true,
                                 unoptimized: true
                             }, void 0, false, {
@@ -677,9 +677,9 @@ function InstructorSection() {
         id: "instructor",
         className: "relative w-full h-screen overflow-hidden",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "relative z-10 h-full flex items-center px-4 md:px-8 lg:px-12 xl:px-16 pt-32 md:pt-0 md:items-center",
+            className: "relative z-10 h-full flex items-center px-4 md:px-8 lg:px-12 xl:px-16 pt-32 md:pt-0 lg:pt-24 xl:pt-0 md:items-center",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12 lg:items-center",
+                className: "w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-8 xl:gap-12 lg:items-center",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "lg:col-span-1 lg:flex lg:items-center",
@@ -758,7 +758,7 @@ function JourneyCard({ title, description, items, animationSrc }) {
                     alt: title,
                     width: 600,
                     height: 600,
-                    className: "w-auto h-auto object-contain max-h-[40vh] md:max-h-[50vh]",
+                    className: "w-auto h-auto object-contain max-h-[40vh] md:max-h-[50vh] lg:max-h-[45vh] xl:max-h-[50vh]",
                     unoptimized: true
                 }, void 0, false, {
                     fileName: "[project]/app/components/JourneyCard.tsx",
@@ -774,7 +774,7 @@ function JourneyCard({ title, description, items, animationSrc }) {
                 className: "flex-1 w-full md:w-1/2 space-y-4 md:space-y-6",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                        className: "text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900",
+                        className: "text-2xl md:text-3xl lg:text-2xl xl:text-4xl font-bold text-gray-900",
                         children: title
                     }, void 0, false, {
                         fileName: "[project]/app/components/JourneyCard.tsx",
@@ -782,7 +782,7 @@ function JourneyCard({ title, description, items, animationSrc }) {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-base md:text-lg text-gray-700 leading-relaxed",
+                        className: "text-base md:text-lg lg:text-base xl:text-lg text-gray-700 leading-relaxed",
                         children: description
                     }, void 0, false, {
                         fileName: "[project]/app/components/JourneyCard.tsx",
@@ -1011,7 +1011,7 @@ function AiJourneySection() {
         onMouseLeave: onMouseUp,
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "relative z-10 h-full flex items-center justify-center px-4 md:px-8 lg:px-12 xl:px-16",
+                className: "relative z-10 h-full flex items-center justify-center px-4 md:px-8 lg:px-12 xl:px-16 pt-20 lg:pt-24 xl:pt-0",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "relative w-full max-w-7xl md:hidden flex items-center justify-center",
@@ -1361,7 +1361,7 @@ function WeekCard({ week, isOpen, onToggle }) {
                 className: "w-full px-6 md:px-8 py-4 md:py-5 text-left flex items-center justify-between hover:bg-white/5 transition-colors",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                        className: "text-lg md:text-xl font-semibold text-gray-900 pr-4",
+                        className: "text-lg md:text-xl lg:text-base xl:text-xl font-semibold text-gray-900 pr-4",
                         children: (()=>{
                             const parts = week.title.split(' — ');
                             if (parts.length > 1) {
@@ -1488,7 +1488,7 @@ function CourseSection() {
         id: "course",
         className: "relative w-full min-h-screen overflow-hidden",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "relative z-10 min-h-screen flex items-start px-4 md:px-8 lg:px-12 xl:px-16 pt-16 md:pt-8 md:items-start overflow-y-auto",
+            className: "relative z-10 min-h-screen flex items-start px-4 md:px-8 lg:px-12 xl:px-16 pt-20 lg:pt-24 xl:pt-8 md:items-start overflow-y-auto",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "w-full max-w-7xl mx-auto py-8 md:py-12",
                 children: courses.map((course)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1498,7 +1498,7 @@ function CourseSection() {
                                 className: "mb-8 md:mb-12 text-center",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                        className: "text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6",
+                                        className: "text-3xl md:text-4xl lg:text-3xl xl:text-5xl font-bold text-gray-900 mb-4 md:mb-6",
                                         children: course.title
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/CourseSection.tsx",
@@ -1506,7 +1506,7 @@ function CourseSection() {
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-base md:text-lg lg:text-xl text-gray-900 mb-4 md:mb-6 max-w-3xl mx-auto",
+                                        className: "text-base md:text-lg lg:text-base xl:text-xl text-gray-900 mb-4 md:mb-6 max-w-3xl mx-auto",
                                         children: course.description
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/CourseSection.tsx",
@@ -1514,7 +1514,7 @@ function CourseSection() {
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-sm md:text-base text-gray-700",
+                                        className: "text-sm md:text-base lg:text-sm xl:text-base text-gray-700",
                                         children: course.cohortInfo
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/CourseSection.tsx",
@@ -1663,7 +1663,7 @@ function PriceCard({ plan, onEnroll }) {
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                className: `text-xl md:text-3xl font-bold ${isBundle ? 'text-white' : 'text-gray-900'} mb-2`,
+                className: `text-xl md:text-3xl lg:text-2xl xl:text-3xl font-bold ${isBundle ? 'text-white' : 'text-gray-900'} mb-2`,
                 children: plan.title
             }, void 0, false, {
                 fileName: "[project]/app/components/PricingSection.tsx",
@@ -1677,7 +1677,7 @@ function PriceCard({ plan, onEnroll }) {
                         className: "flex items-baseline gap-2",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: `text-2xl md:text-4xl font-bold ${isBundle ? 'text-white' : 'text-gray-900'}`,
+                                className: `text-2xl md:text-4xl lg:text-3xl xl:text-4xl font-bold ${isBundle ? 'text-white' : 'text-gray-900'}`,
                                 children: plan.price
                             }, void 0, false, {
                                 fileName: "[project]/app/components/PricingSection.tsx",
@@ -2298,7 +2298,7 @@ function PricingSection() {
                 id: "pricing",
                 className: "relative w-full min-h-screen overflow-hidden",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "relative z-10 min-h-screen flex items-start px-4 md:px-8 lg:px-12 xl:px-16 pt-16 md:pt-8 md:items-start overflow-y-auto",
+                    className: "relative z-10 min-h-screen flex items-start px-4 md:px-8 lg:px-12 xl:px-16 pt-20 lg:pt-24 xl:pt-8 md:items-start overflow-y-auto",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "w-full max-w-7xl mx-auto py-8 md:py-12",
                         children: [
@@ -2306,7 +2306,7 @@ function PricingSection() {
                                 className: "mb-8 md:mb-12 text-center",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                        className: "text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6",
+                                        className: "text-3xl md:text-4xl lg:text-3xl xl:text-5xl font-bold text-gray-900 mb-4 md:mb-6",
                                         children: "Choose Your Learning Path"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/PricingSection.tsx",
@@ -2314,7 +2314,7 @@ function PricingSection() {
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-base md:text-lg text-gray-700 max-w-3xl mx-auto",
+                                        className: "text-base md:text-lg lg:text-base xl:text-lg text-gray-700 max-w-3xl mx-auto",
                                         children: "Select the course that best fits your goals and start building AI systems today."
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/PricingSection.tsx",
@@ -2521,7 +2521,7 @@ function FAQCard({ faq, isOpen, onToggle }) {
                 className: "w-full px-6 md:px-8 py-4 md:py-5 text-left flex items-center justify-between hover:bg-gray-200/20 transition-colors",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                        className: "text-lg md:text-xl font-semibold text-gray-900 pr-4",
+                        className: "text-lg md:text-xl lg:text-base xl:text-xl font-semibold text-gray-900 pr-4",
                         children: faq.question
                     }, void 0, false, {
                         fileName: "[project]/app/components/FAQSection.tsx",
@@ -2591,14 +2591,14 @@ function FAQSection() {
         id: "faq",
         className: "relative w-full min-h-screen overflow-hidden",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "relative z-10 min-h-screen flex items-start px-4 md:px-8 lg:px-12 xl:px-16 pt-16 md:pt-8 md:items-start overflow-y-auto",
+            className: "relative z-10 min-h-screen flex items-start px-4 md:px-8 lg:px-12 xl:px-16 pt-20 lg:pt-24 xl:pt-8 md:items-start overflow-y-auto",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "w-full max-w-7xl mx-auto py-8 md:py-12",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "mb-8 md:mb-12 text-center",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                            className: "text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6",
+                            className: "text-3xl md:text-4xl lg:text-3xl xl:text-5xl font-bold text-gray-900 mb-4 md:mb-6",
                             children: "⭐ FAQ SECTION"
                         }, void 0, false, {
                             fileName: "[project]/app/components/FAQSection.tsx",
