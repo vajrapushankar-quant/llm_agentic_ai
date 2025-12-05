@@ -15,11 +15,28 @@ export async function POST(request: NextRequest) {
     const razorpayKeyId = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_test_RnaJg6IBlcJkrk";
     const razorpayKeySecret = process.env.RAZORPAY_KEY_SECRET || "zeLEGY2Ykm5WMcoEWp21WCAr";
 
+    if (!razorpayKeySecret) {
+      return NextResponse.json(
+        { error: "Razorpay configuration missing" },
+        { status: 500 }
+      );
+    }
+
     const razorpay = new Razorpay({
       key_id: razorpayKeyId,
       key_secret: razorpayKeySecret,
     });
-    const body = await request.json();
+
+    let body;
+    try {
+      body = await request.json();
+    } catch (parseError) {
+      return NextResponse.json(
+        { error: "Invalid request body", details: "Could not parse JSON" },
+        { status: 400 }
+      );
+    }
+
     const { planId, planName, customerName, customerEmail, customerPhone } = body;
 
     if (!planId || !priceMap[planId]) {
@@ -53,10 +70,31 @@ export async function POST(request: NextRequest) {
     });
   } catch (error: any) {
     console.error("Error creating Razorpay order:", error);
+    
+    // Return proper JSON error response
+    const errorMessage = error?.message || "Unknown error occurred";
+    const errorDetails = error?.error?.description || error?.description || errorMessage;
+    
     return NextResponse.json(
-      { error: "Failed to create order", details: error.message },
+      { 
+        error: "Failed to create order", 
+        details: errorDetails,
+        message: errorMessage
+      },
       { status: 500 }
     );
   }
+}
+
+// Handle OPTIONS for CORS preflight
+export async function OPTIONS() {
+  return new NextResponse(null, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  });
 }
 

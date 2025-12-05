@@ -382,8 +382,22 @@ function EnrollmentModal({
       });
 
       if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || "Failed to create order");
+        // Try to get error message from response
+        let errorMessage = "Failed to create order";
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.error || errorData.details || errorMessage;
+        } catch (parseError) {
+          // If response is not JSON, get text
+          try {
+            const text = await response.text();
+            console.error("Non-JSON response from API:", text);
+            errorMessage = `Server error (${response.status}): ${response.statusText}`;
+          } catch (textError) {
+            errorMessage = `Server error (${response.status}): ${response.statusText}`;
+          }
+        }
+        throw new Error(errorMessage);
       }
 
       const orderData = await response.json();
