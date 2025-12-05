@@ -1,14 +1,4 @@
-[00:00:03.641] Server  LOG      ✓ Ready in 2.9s
-[00:02:40.376] Server  LOG      ○ Compiling / ...
-[00:02:43.282] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:04:04.338] Browser LOG     Payment button clicked
-[00:04:07.374] Browser LOG     Data submitted to Google Sheets: {"email":"vajrapu.shankar@gmail.com","name":"Legend","paymentGateway":"razorpay","phone":"7396313939","planId":3,"planName":"LLM Foundations + Agentic AI Mastery","planPrice":"₹24,999","timestamp":"2025-12-04T15:44:28.563Z"}
-[00:06:53.799] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:53.983] Browser WARN    Image with src "/quantum_black_logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[13:32:27.518] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[13:33:05.800] Browser LOG     Payment button clicked
-[13:33:08.917] Browser LOG     Data submitted to Google Sheets: {"email":"vajrapushankar@gmail.com","name":"Girija Shankar Varjapu","paymentGateway":"razorpay","phone":"7396313939","planId":2,"planName":"Agentic AI Mastery","planPrice":"₹19,999","timestamp":"2025-12-05T05:13:18.757Z"}
-[13:45:42.687] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[13:47:15.202] Browser WARN    Image with src "/quantum_black_logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:00:01.862] Server  LOG      ✓ Ready in 1323ms
+[00:00:08.531] Server  LOG      ○ Compiling / ...
+[00:00:10.942] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:36.235] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

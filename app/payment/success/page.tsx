@@ -9,6 +9,35 @@ function PaymentSuccessContent() {
   const [loading, setLoading] = useState(true);
   const [paymentData, setPaymentData] = useState<any>(null);
 
+  // Google Apps Script Web App URL - same as in PricingSection
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby_GA6mD1aBpcwBTltK7hEGeCcuWdwQrzTMh9Sgtlkd88IPDJvRayFgdAtQ2bYQmggpOw/exec";
+
+  const updateGoogleSheetsStatus = async (email: string, paymentId: string, orderId: string) => {
+    try {
+      const data = {
+        action: "update",
+        email: email,
+        status: "completed",
+        paymentId: paymentId,
+        orderId: orderId,
+        timestamp: new Date().toISOString()
+      };
+
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      console.log("Google Sheets status updated to completed");
+    } catch (error) {
+      console.error("Error updating Google Sheets status:", error);
+    }
+  };
+
   useEffect(() => {
     // Get payment details from URL params
     const orderId = searchParams.get("razorpay_order_id");
@@ -25,6 +54,21 @@ function PaymentSuccessContent() {
         planId,
         planName,
       });
+
+      // Get customer data from localStorage
+      const customerDataStr = localStorage.getItem('customerData');
+      if (customerDataStr) {
+        try {
+          const customerData = JSON.parse(customerDataStr);
+          
+          // Update Google Sheets status to completed
+          if (customerData.email) {
+            updateGoogleSheetsStatus(customerData.email, paymentId, orderId);
+          }
+        } catch (error) {
+          console.error("Error parsing customer data:", error);
+        }
+      }
 
       // Track Meta Pixel Purchase conversion
       if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {

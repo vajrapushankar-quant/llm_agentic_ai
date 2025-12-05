@@ -3,6 +3,19 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
+// Currency conversion rates (approximate, update as needed)
+const CURRENCY_RATES = {
+  USD: 0.012, // 1 INR = 0.012 USD (approx)
+  GBP: 0.0095, // 1 INR = 0.0095 GBP (approx)
+};
+
+// Price in INR (without currency symbol)
+const PRICE_IN_INR = {
+  1: 14999,
+  2: 19999,
+  3: 24999,
+};
+
 const pricingPlans = [
   {
     id: 3,
@@ -67,9 +80,22 @@ const pricingPlans = [
   }
 ];
 
-function PriceCard({ plan, onEnroll }: { plan: typeof pricingPlans[0]; onEnroll: () => void }) {
+function PriceCard({ plan, onEnroll, userCountry }: { plan: typeof pricingPlans[0]; onEnroll: () => void; userCountry: string | null }) {
   const isBundle = plan.id === 3;
   const isAgenticAI = plan.id === 2;
+  
+  // Get price in INR
+  const priceInINR = PRICE_IN_INR[plan.id as keyof typeof PRICE_IN_INR];
+  
+  // Calculate converted price based on country
+  let convertedPrice: string | null = null;
+  if (userCountry === "US") {
+    const usdPrice = Math.round(priceInINR * CURRENCY_RATES.USD);
+    convertedPrice = `(approx. USD ${usdPrice})`;
+  } else if (userCountry === "GB") {
+    const gbpPrice = Math.round(priceInINR * CURRENCY_RATES.GBP);
+    convertedPrice = `(approx. GBP ${gbpPrice})`;
+  }
   
   return (
     <div className={`${isBundle ? 'bg-gray-900 md:scale-110 ring-4 ring-purple-600/30' : 'bg-gray-200/10 backdrop-blur-sm'} rounded-2xl shadow-lg ${isBundle ? 'p-5 md:p-10' : 'p-5 md:p-8'} flex flex-col h-full relative ${isBundle ? 'z-10' : ''}`}>
@@ -86,12 +112,15 @@ function PriceCard({ plan, onEnroll }: { plan: typeof pricingPlans[0]; onEnroll:
       </h3>
       
       <div className="mb-4">
-        <div className="flex items-baseline gap-2">
+        <div className="flex items-baseline gap-2 flex-wrap">
           <span className={`text-2xl md:text-4xl lg:text-3xl xl:text-4xl font-bold ${isBundle ? 'text-white' : 'text-gray-900'}`}>{plan.price}</span>
           {plan.originalPrice && (
             <span className={`text-lg ${isBundle ? 'text-gray-400' : 'text-gray-500'} line-through`}>{plan.originalPrice}</span>
           )}
         </div>
+        {convertedPrice && (
+          <p className={`text-sm ${isBundle ? 'text-gray-300' : 'text-gray-600'} mt-1`}>{convertedPrice}</p>
+        )}
         {plan.savings && (
           <p className={`text-sm ${isBundle ? 'text-purple-400' : 'text-purple-600'} font-semibold mt-1`}>Save {plan.savings}</p>
         )}
@@ -143,39 +172,85 @@ function EnrollmentModal({
   isOpen, 
   onClose, 
   planId, 
-  planName 
+  planName,
+  userCountry
 }: { 
   isOpen: boolean; 
   onClose: () => void; 
   planId: number;
   planName: string;
+  userCountry: string | null;
 }) {
   // Start with form step (removed warning popup for better conversion)
-  const [step, setStep] = useState<"form" | "payment">("form");
+  const [step, setStep] = useState<"form" | "payment" | "cancel">("form");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: ""
+    phone: "",
+    batch: "" as "" | "weekday" | "weekend"
   });
   const [selectedGateway, setSelectedGateway] = useState<"razorpay" | null>("razorpay");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [cancelReason, setCancelReason] = useState("");
+  const [localTimes, setLocalTimes] = useState<{ weekday: string; weekend: string } | null>(null);
+
+  // Convert IST times to user's local timezone
+  useEffect(() => {
+    if (isOpen) {
+      // Helper function to convert IST time to local time string
+      const convertISTToLocal = (istHour: number, istMinute: number): string => {
+        // Create a date string in IST format
+        const today = new Date();
+        const istDateString = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}T${String(istHour).padStart(2, '0')}:${String(istMinute).padStart(2, '0')}:00+05:30`;
+        
+        // Parse as IST and convert to local
+        const istDate = new Date(istDateString);
+        
+        // Format in local time
+        const hours = istDate.getHours();
+        const minutes = istDate.getMinutes();
+        return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+      };
+      
+      // Weekday: 6-8 AM IST
+      const weekdayStartTime = convertISTToLocal(6, 0);
+      const weekdayEndTime = convertISTToLocal(8, 0);
+      
+      // Weekend: 10 AM - 2 PM IST
+      const weekendStartTime = convertISTToLocal(10, 0);
+      const weekendEndTime = convertISTToLocal(14, 0);
+      
+      const weekdayTime = `${weekdayStartTime} - ${weekdayEndTime}`;
+      const weekendTime = `${weekendStartTime} - ${weekendEndTime}`;
+      
+      setLocalTimes({ weekday: weekdayTime, weekend: weekendTime });
+    }
+  }, [isOpen]);
 
   // Reset step when modal opens/closes
   useEffect(() => {
     if (isOpen) {
       setStep("form");
-      setFormData({ name: "", email: "", phone: "" });
+      setFormData({ name: "", email: "", phone: "", batch: "" });
       setSelectedGateway(null);
+      setCancelReason("");
     }
   }, [isOpen, planId]);
 
   // Google Apps Script Web App URL - Replace with your actual web app URL
   const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby_GA6mD1aBpcwBTltK7hEGeCcuWdwQrzTMh9Sgtlkd88IPDJvRayFgdAtQ2bYQmggpOw/exec";
 
-  const submitToGoogleSheets = async () => {
+  const submitToGoogleSheets = async (status: "pending" | "cancelled" = "pending", reason?: string) => {
     try {
       const planDetails = pricingPlans.find(p => p.id === planId);
       const timestamp = new Date().toISOString();
+      
+      // Get batch time in local timezone
+      const batchTime = formData.batch === "weekday" 
+        ? `Weekday 6-8 AM IST (${localTimes?.weekday || "6:00 - 8:00"} local time)`
+        : formData.batch === "weekend"
+        ? `Weekend 10 AM - 2 PM IST (${localTimes?.weekend || "10:00 - 14:00"} local time)`
+        : "";
       
       const data = {
         timestamp: timestamp,
@@ -185,7 +260,11 @@ function EnrollmentModal({
         planId: planId,
         planName: planName,
         planPrice: planDetails?.price || "",
-        paymentGateway: "razorpay"
+        paymentGateway: status === "cancelled" ? "cancelled" : "razorpay",
+        status: status,
+        batch: batchTime,
+        cancelReason: reason || "",
+        country: userCountry || ""
       };
 
       // Submit to Google Sheets
@@ -211,7 +290,34 @@ function EnrollmentModal({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.batch) {
+      alert("Please select a batch time");
+      return;
+    }
     setStep("payment");
+  };
+
+  const handleCancel = () => {
+    setStep("cancel");
+  };
+
+  const handleCancelSubmit = async () => {
+    if (!cancelReason) {
+      alert("Please select a reason for cancellation");
+      return;
+    }
+    
+    setIsSubmitting(true);
+    try {
+      await submitToGoogleSheets("cancelled", cancelReason);
+      alert("Thank you for your feedback. We're sorry to see you go!");
+      onClose();
+    } catch (error) {
+      console.error("Error submitting cancellation:", error);
+      alert("There was an error. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const loadRazorpayScript = (): Promise<void> => {
@@ -236,7 +342,7 @@ function EnrollmentModal({
 
     try {
       // Submit to Google Sheets before redirecting
-      await submitToGoogleSheets();
+      await submitToGoogleSheets("pending");
 
       // Fire Meta Pixel Lead event
       if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
@@ -252,7 +358,9 @@ function EnrollmentModal({
         email: formData.email,
         phone: formData.phone,
         planId: planId,
-        planName: planName
+        planName: planName,
+        country: userCountry || "",
+        batch: formData.batch
       }));
 
       // Load Razorpay script
@@ -346,7 +454,63 @@ function EnrollmentModal({
             </button>
           </div>
 
-          {step === "form" ? (
+          {step === "cancel" ? (
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Why are you cancelling?</h3>
+              <div className="space-y-3">
+                <label className="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
+                  <input
+                    type="radio"
+                    name="cancelReason"
+                    value="Changed my mind"
+                    checked={cancelReason === "Changed my mind"}
+                    onChange={(e) => setCancelReason(e.target.value)}
+                    className="mr-3"
+                  />
+                  <span className="text-gray-700">Changed my mind</span>
+                </label>
+                <label className="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
+                  <input
+                    type="radio"
+                    name="cancelReason"
+                    value="Price too high"
+                    checked={cancelReason === "Price too high"}
+                    onChange={(e) => setCancelReason(e.target.value)}
+                    className="mr-3"
+                  />
+                  <span className="text-gray-700">Price too high</span>
+                </label>
+                <label className="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
+                  <input
+                    type="radio"
+                    name="cancelReason"
+                    value="Neither batch time is convenient for me"
+                    checked={cancelReason === "Neither batch time is convenient for me"}
+                    onChange={(e) => setCancelReason(e.target.value)}
+                    className="mr-3"
+                  />
+                  <span className="text-gray-700">Neither batch time is convenient for me</span>
+                </label>
+              </div>
+              <div className="flex gap-4 pt-4">
+                <button
+                  type="button"
+                  onClick={() => setStep("form")}
+                  className="flex-1 px-4 py-3 border border-gray-300 rounded-full font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  onClick={handleCancelSubmit}
+                  disabled={isSubmitting || !cancelReason}
+                  className="flex-1 bg-gray-900 text-white px-4 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? "Submitting..." : "Submit"}
+                </button>
+              </div>
+            </div>
+          ) : step === "form" ? (
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Banner for Agentic AI suggesting Bundle */}
               {planId === 2 && (
@@ -411,14 +575,67 @@ function EnrollmentModal({
                   placeholder="Enter your phone number"
                 />
               </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Select Batch Time *
+                </label>
+                <div className="space-y-3">
+                  <label className="flex items-start p-4 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-purple-500 transition-colors">
+                    <input
+                      type="radio"
+                      name="batch"
+                      value="weekday"
+                      checked={formData.batch === "weekday"}
+                      onChange={(e) => setFormData({ ...formData, batch: e.target.value as "weekday" | "weekend" })}
+                      className="mt-1 mr-3"
+                      required
+                    />
+                    <div className="flex-1">
+                      <div className="font-semibold text-gray-900">Weekday Batch</div>
+                      <div className="text-sm text-gray-600">6-8 AM IST</div>
+                      {localTimes && (
+                        <div className="text-xs text-gray-500 mt-1">({localTimes.weekday} your local time)</div>
+                      )}
+                    </div>
+                  </label>
+                  <label className="flex items-start p-4 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-purple-500 transition-colors">
+                    <input
+                      type="radio"
+                      name="batch"
+                      value="weekend"
+                      checked={formData.batch === "weekend"}
+                      onChange={(e) => setFormData({ ...formData, batch: e.target.value as "weekday" | "weekend" })}
+                      className="mt-1 mr-3"
+                      required
+                    />
+                    <div className="flex-1">
+                      <div className="font-semibold text-gray-900">Weekend Batch</div>
+                      <div className="text-sm text-gray-600">10 AM - 2 PM IST</div>
+                      {localTimes && (
+                        <div className="text-xs text-gray-500 mt-1">({localTimes.weekend} your local time)</div>
+                      )}
+                    </div>
+                  </label>
+                </div>
+              </div>
               
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-gray-900 text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? "Submitting..." : "Continue to Payment"}
-              </button>
+              <div className="flex gap-4 pt-2">
+                <button
+                  type="button"
+                  onClick={handleCancel}
+                  className="flex-1 px-4 py-3 border border-gray-300 rounded-full font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="flex-1 bg-gray-900 text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? "Submitting..." : "Continue to Payment"}
+                </button>
+              </div>
             </form>
           ) : (
             <div className="space-y-4">
@@ -461,6 +678,31 @@ function EnrollmentModal({
 export default function PricingSection() {
   const [selectedPlan, setSelectedPlan] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [userCountry, setUserCountry] = useState<string | null>(null);
+
+  // Detect user's country for currency conversion
+  useEffect(() => {
+    const detectCountry = async () => {
+      try {
+        // Using a free IP geolocation service
+        const response = await fetch("https://ipapi.co/json/");
+        const data = await response.json();
+        if (data.country_code) {
+          setUserCountry(data.country_code);
+        }
+      } catch (error) {
+        console.error("Error detecting country:", error);
+        // Fallback: try to detect from timezone
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        if (timezone.includes("America")) {
+          setUserCountry("US");
+        } else if (timezone.includes("Europe/London")) {
+          setUserCountry("GB");
+        }
+      }
+    };
+    detectCountry();
+  }, []);
 
   const handleEnroll = (planId: number) => {
     setSelectedPlan(planId);
@@ -512,6 +754,7 @@ export default function PricingSection() {
                   <PriceCard
                     plan={plan}
                     onEnroll={() => handleEnroll(plan.id)}
+                    userCountry={userCountry}
                   />
                 </div>
               ))}
@@ -542,6 +785,7 @@ export default function PricingSection() {
           onClose={handleCloseModal}
           planId={selectedPlan}
           planName={pricingPlans.find(p => p.id === selectedPlan)?.title || ""}
+          userCountry={userCountry}
         />
       )}
     </>

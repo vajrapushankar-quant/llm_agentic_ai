@@ -46,11 +46,62 @@ function doPost(e) {
         'Plan ID',
         'Plan Name',
         'Plan Price',
-        'Payment Gateway'
+        'Payment Gateway',
+        'Status',
+        'Batch',
+        'Cancel Reason',
+        'Country',
+        'Payment ID',
+        'Order ID'
       ]);
     }
     
-    // Append the data as a new row
+    // Check if this is an update action
+    if (data.action === 'update' && data.email) {
+      // Find the row with matching email
+      const emailColumn = 3; // Column C (Email)
+      const statusColumn = 9; // Column I (Status)
+      const paymentIdColumn = 12; // Column M (Payment ID)
+      const orderIdColumn = 13; // Column N (Order ID)
+      
+      const lastRow = sheet.getLastRow();
+      let found = false;
+      
+      // Search for the email in the sheet
+      for (let i = 2; i <= lastRow; i++) {
+        const rowEmail = sheet.getRange(i, emailColumn).getValue();
+        if (rowEmail && rowEmail.toString().toLowerCase() === data.email.toLowerCase()) {
+          // Update the status
+          sheet.getRange(i, statusColumn).setValue(data.status || 'completed');
+          
+          // Update payment ID and order ID if provided
+          if (data.paymentId) {
+            sheet.getRange(i, paymentIdColumn).setValue(data.paymentId);
+          }
+          if (data.orderId) {
+            sheet.getRange(i, orderIdColumn).setValue(data.orderId);
+          }
+          
+          found = true;
+          break;
+        }
+      }
+      
+      if (!found) {
+        console.log('Email not found for update:', data.email);
+      }
+      
+      return ContentService.createTextOutput(JSON.stringify({
+        success: true,
+        message: found ? 'Status updated successfully' : 'Email not found'
+      }))
+        .setMimeType(ContentService.MimeType.JSON)
+        .setHeaders({
+          'Access-Control-Allow-Origin': '*'
+        });
+    }
+    
+    // Otherwise, append the data as a new row
     sheet.appendRow([
       data.timestamp || new Date().toISOString(),
       data.name || '',
@@ -59,7 +110,13 @@ function doPost(e) {
       data.planId || '',
       data.planName || '',
       data.planPrice || '',
-      data.paymentGateway || 'pending'
+      data.paymentGateway || 'pending',
+      data.status || 'pending',
+      data.batch || '',
+      data.cancelReason || '',
+      data.country || '',
+      '', // Payment ID (will be updated later)
+      ''  // Order ID (will be updated later)
     ]);
     
     // Return success response with CORS headers
@@ -126,6 +183,21 @@ The following data will be saved to your Google Sheet:
 - Customer Phone
 - Plan ID (1, 2, or 3)
 - Plan Name (e.g., "LLM Foundations", "Agentic AI Mastery", "Bundle")
-- Plan Price (e.g., "₹9,999")
-- Payment Gateway ("payu", "razorpay", or "pending")
+- Plan Price (e.g., "₹14,999")
+- Payment Gateway ("razorpay" or "cancelled")
+- Status ("pending", "cancelled", or "completed")
+- Batch (e.g., "Weekday 6-8 AM IST (6:00 - 8:00 local time)" or "Weekend 10 AM - 2 PM IST (10:00 - 14:00 local time)")
+- Cancel Reason (if cancelled: "Changed my mind", "Price too high", or "Neither batch time is convenient for me")
+- Country (e.g., "US", "GB", "IN", etc.)
+- Payment ID (Razorpay payment ID, updated on successful payment)
+- Order ID (Razorpay order ID, updated on successful payment)
+
+## Status Updates
+
+When a payment is successful:
+1. The system automatically finds the record by email
+2. Updates the Status column from "pending" to "completed"
+3. Adds the Payment ID and Order ID to the record
+
+This ensures you can track which enrollments have been paid for and which are still pending.
 
