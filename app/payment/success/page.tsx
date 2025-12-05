@@ -72,11 +72,25 @@ function PaymentSuccessContent() {
 
       // Track Meta Pixel Purchase conversion
       if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
-        const amount = planId === "1" ? "14999" : planId === "2" ? "19999" : "24999";
+        // Get actual price from localStorage (stored during payment)
+        let amount = 0;
+        if (customerDataStr) {
+          try {
+            const customerData = JSON.parse(customerDataStr);
+            amount = customerData.price || 0;
+          } catch (e) {
+            // Fallback to default prices if not found
+            amount = planId === "1" ? 14999 : planId === "2" ? 19999 : 24999;
+          }
+        } else {
+          // Fallback to default prices
+          amount = planId === "1" ? 14999 : planId === "2" ? 19999 : 24999;
+        }
+        
         (window as any).fbq("track", "Purchase", {
           content_name: planName,
           content_ids: [planId],
-          value: parseFloat(amount),
+          value: amount,
           currency: "INR",
         });
       }

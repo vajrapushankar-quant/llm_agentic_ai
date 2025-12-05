@@ -51,6 +51,7 @@ function doPost(e) {
         'Batch',
         'Cancel Reason',
         'Country',
+        'Pricing Region',
         'Payment ID',
         'Order ID'
       ]);
@@ -115,6 +116,7 @@ function doPost(e) {
       data.batch || '',
       data.cancelReason || '',
       data.country || '',
+      data.pricingRegion || '',
       '', // Payment ID (will be updated later)
       ''  // Order ID (will be updated later)
     ]);
@@ -189,6 +191,7 @@ The following data will be saved to your Google Sheet:
 - Batch (e.g., "Weekday 6-8 AM IST (6:00 - 8:00 local time)" or "Weekend 10 AM - 2 PM IST (10:00 - 14:00 local time)")
 - Cancel Reason (if cancelled: "Changed my mind", "Price too high", or "Neither batch time is convenient for me")
 - Country (e.g., "US", "GB", "IN", etc.)
+- Pricing Region ("IN" for India pricing, "GLOBAL" for global pricing)
 - Payment ID (Razorpay payment ID, updated on successful payment)
 - Order ID (Razorpay order ID, updated on successful payment)
 

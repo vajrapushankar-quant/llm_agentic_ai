@@ -68,6 +68,11 @@ const faqs = [
     id: 13,
     question: "Do I need to pay for the tools and APIs used in the course?",
     answer: "All tools used in the course come with generous free tiers. You only need to create free developer accounts for OpenAI, Anthropic, Pinecone, etc. Any optional usage beyond the free tier is your choice."
+  },
+  {
+    id: 14,
+    question: "Why are there different prices for India and Global customers?",
+    answer: "We offer regional pricing to make our courses accessible to students worldwide while accounting for economic differences and exchange rates. Indian customers receive discounted pricing in INR, while global customers pay standard rates. All payments are processed in INR (Indian Rupees), regardless of your location. The price difference accounts for currency exchange rates, regional purchasing power, and our commitment to making quality AI education accessible globally. You can switch between pricing regions using the toggle above the pricing cards if needed."
   }
 ];
 

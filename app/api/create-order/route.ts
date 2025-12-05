@@ -1,11 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import Razorpay from "razorpay";
 
-// Price map in paise (smallest currency unit)
-const priceMap: Record<number, number> = {
-  1: 1499900, // ₹14,999
-  2: 1999900, // ₹19,999
-  3: 2499900, // ₹24,999
+// Regional pricing maps in paise (smallest currency unit)
+const INDIA_PRICES: Record<number, number> = {
+  1: 1499900, // ₹14,999 - LLM Foundations
+  2: 1999900, // ₹19,999 - Agentic AI Mastery
+  3: 2499900, // ₹24,999 - Bundle
+};
+
+const GLOBAL_PRICES: Record<number, number> = {
+  1: 1999900, // ₹19,999 - LLM Foundations
+  2: 2499900, // ₹24,999 - Agentic AI Mastery
+  3: 3499900, // ₹34,999 - Bundle
 };
 
 export async function POST(request: NextRequest) {
@@ -37,9 +43,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { planId, planName, customerName, customerEmail, customerPhone } = body;
+    const { planId, planName, customerName, customerEmail, customerPhone, pricingRegion } = body;
 
-    if (!planId || !priceMap[planId]) {
+    if (!planId) {
+      return NextResponse.json(
+        { error: "Invalid plan ID" },
+        { status: 400 }
+      );
+    }
+
+    // Get price based on region (default to GLOBAL if not specified)
+    const region = pricingRegion === "IN" ? "IN" : "GLOBAL";
+    const priceMap = region === "IN" ? INDIA_PRICES : GLOBAL_PRICES;
+    
+    if (!priceMap[planId]) {
       return NextResponse.json(
         { error: "Invalid plan ID" },
         { status: 400 }

@@ -2,27 +2,14 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { useRegionalPricing } from "../hooks/useRegionalPricing";
 
-// Currency conversion rates (approximate, update as needed)
-const CURRENCY_RATES = {
-  USD: 0.012, // 1 INR = 0.012 USD (approx)
-  GBP: 0.0095, // 1 INR = 0.0095 GBP (approx)
-};
-
-// Price in INR (without currency symbol)
-const PRICE_IN_INR = {
-  1: 14999,
-  2: 19999,
-  3: 24999,
-};
-
+// Plan metadata (prices are dynamic based on region)
+// Bundle is first as requested
 const pricingPlans = [
   {
     id: 3,
     title: "LLM Foundations + Agentic AI Mastery",
-    price: "₹24,999",
-    originalPrice: "₹34,999",
-    savings: "₹10,000",
     startDate: "LLM: January 26 | Agentic AI: February 16",
     duration: "10 Weeks Total",
     badge: "⭐ Recommended",
@@ -41,11 +28,9 @@ const pricingPlans = [
   {
     id: 1,
     title: "LLM Foundations",
-    price: "₹14,999",
     startDate: "January 26",
     duration: "5 Weeks · Weekends Only",
     badge: null,
-    savings: null,
     featureHeading: "Learn the fundamentals of modern AI:",
     features: [
       "Understand how LLMs actually work",
@@ -61,11 +46,9 @@ const pricingPlans = [
   {
     id: 2,
     title: "Agentic AI Mastery",
-    price: "₹19,999",
     startDate: "February 16",
     duration: "5 Weeks · Weekends Only",
     badge: null,
-    savings: null,
     featureHeading: "Build autonomous, real-world AI agents:",
     features: [
       "LangGraph, CrewAI & Autogen deep dive",
@@ -80,21 +63,40 @@ const pricingPlans = [
   }
 ];
 
-function PriceCard({ plan, onEnroll, userCountry }: { plan: typeof pricingPlans[0]; onEnroll: () => void; userCountry: string | null }) {
+function PriceCard({ 
+  plan, 
+  onEnroll, 
+  price, 
+  approxUSD, 
+  isGlobal 
+}: { 
+  plan: typeof pricingPlans[0]; 
+  onEnroll: () => void;
+  price: number;
+  approxUSD: number;
+  isGlobal: boolean;
+}) {
   const isBundle = plan.id === 3;
   const isAgenticAI = plan.id === 2;
   
-  // Get price in INR
-  const priceInINR = PRICE_IN_INR[plan.id as keyof typeof PRICE_IN_INR];
+  // Format price in INR
+  const formattedPrice = `₹${price.toLocaleString("en-IN")}`;
   
-  // Calculate converted price based on country
-  let convertedPrice: string | null = null;
-  if (userCountry === "US") {
-    const usdPrice = Math.round(priceInINR * CURRENCY_RATES.USD);
-    convertedPrice = `(approx. USD ${usdPrice})`;
-  } else if (userCountry === "GB") {
-    const gbpPrice = Math.round(priceInINR * CURRENCY_RATES.GBP);
-    convertedPrice = `(approx. GBP ${gbpPrice})`;
+  // For bundle, calculate original price and savings
+  let originalPrice: string | null = null;
+  let savings: string | null = null;
+  
+  if (isBundle) {
+    // Bundle original price is sum of individual courses in current region
+    if (isGlobal) {
+      originalPrice = "₹44,998"; // ₹19,999 + ₹24,999
+      const savingsAmount = 44998 - price;
+      savings = `₹${savingsAmount.toLocaleString("en-IN")}`;
+    } else {
+      originalPrice = "₹34,998"; // ₹14,999 + ₹19,999
+      const savingsAmount = 34998 - price;
+      savings = `₹${savingsAmount.toLocaleString("en-IN")}`;
+    }
   }
   
   return (
@@ -113,16 +115,16 @@ function PriceCard({ plan, onEnroll, userCountry }: { plan: typeof pricingPlans[
       
       <div className="mb-4">
         <div className="flex items-baseline gap-2 flex-wrap">
-          <span className={`text-2xl md:text-4xl lg:text-3xl xl:text-4xl font-bold ${isBundle ? 'text-white' : 'text-gray-900'}`}>{plan.price}</span>
-          {plan.originalPrice && (
-            <span className={`text-lg ${isBundle ? 'text-gray-400' : 'text-gray-500'} line-through`}>{plan.originalPrice}</span>
+          <span className={`text-2xl md:text-4xl lg:text-3xl xl:text-4xl font-bold ${isBundle ? 'text-white' : 'text-gray-900'}`}>{formattedPrice}</span>
+          {originalPrice && (
+            <span className={`text-lg ${isBundle ? 'text-gray-400' : 'text-gray-500'} line-through`}>{originalPrice}</span>
           )}
         </div>
-        {convertedPrice && (
-          <p className={`text-sm ${isBundle ? 'text-gray-300' : 'text-gray-600'} mt-1`}>{convertedPrice}</p>
+        {isGlobal && (
+          <p className={`text-sm ${isBundle ? 'text-gray-300' : 'text-gray-600'} mt-1`}>(≈ ${approxUSD} USD)</p>
         )}
-        {plan.savings && (
-          <p className={`text-sm ${isBundle ? 'text-purple-400' : 'text-purple-600'} font-semibold mt-1`}>Save {plan.savings}</p>
+        {savings && (
+          <p className={`text-sm ${isBundle ? 'text-purple-400' : 'text-purple-600'} font-semibold mt-1`}>Save {savings}</p>
         )}
       </div>
       
@@ -173,26 +175,32 @@ function EnrollmentModal({
   onClose, 
   planId, 
   planName,
-  userCountry
+  userCountry,
+  pricingRegion,
+  currentPrice
 }: { 
   isOpen: boolean; 
   onClose: () => void; 
   planId: number;
   planName: string;
   userCountry: string | null;
+  pricingRegion: "IN" | "GLOBAL";
+  currentPrice: number;
 }) {
-  // Start with form step (removed warning popup for better conversion)
-  const [step, setStep] = useState<"form" | "payment" | "cancel">("form");
+  // Multi-step enrollment: details → batch → regionWarning (if needed) → payment
+  const [step, setStep] = useState<"details" | "batch" | "regionWarning" | "payment" | "cancel">("details");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     batch: "" as "" | "weekday" | "weekend"
   });
+  const [detailsSubmitted, setDetailsSubmitted] = useState(false); // Track if details were submitted to Google Sheets
   const [selectedGateway, setSelectedGateway] = useState<"razorpay" | null>("razorpay");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [cancelReason, setCancelReason] = useState("");
   const [localTimes, setLocalTimes] = useState<{ weekday: string; weekend: string } | null>(null);
+  const [regionWarningType, setRegionWarningType] = useState<"india-to-global" | "global-to-india" | null>(null);
 
   // Convert IST times to user's local timezone
   useEffect(() => {
@@ -230,10 +238,12 @@ function EnrollmentModal({
   // Reset step when modal opens/closes
   useEffect(() => {
     if (isOpen) {
-      setStep("form");
+      setStep("details");
       setFormData({ name: "", email: "", phone: "", batch: "" });
       setSelectedGateway(null);
       setCancelReason("");
+      setDetailsSubmitted(false);
+      setRegionWarningType(null);
     }
   }, [isOpen, planId]);
 
@@ -252,6 +262,9 @@ function EnrollmentModal({
         ? `Weekend 10 AM - 2 PM IST (${localTimes?.weekend || "10:00 - 14:00"} local time)`
         : "";
       
+      // Format price for display
+      const formattedPrice = `₹${currentPrice.toLocaleString("en-IN")}`;
+      
       const data = {
         timestamp: timestamp,
         name: formData.name,
@@ -259,12 +272,13 @@ function EnrollmentModal({
         phone: formData.phone,
         planId: planId,
         planName: planName,
-        planPrice: planDetails?.price || "",
+        planPrice: formattedPrice,
         paymentGateway: status === "cancelled" ? "cancelled" : "razorpay",
         status: status,
         batch: batchTime,
         cancelReason: reason || "",
-        country: userCountry || ""
+        country: userCountry || "",
+        pricingRegion: pricingRegion
       };
 
       // Submit to Google Sheets
@@ -288,13 +302,89 @@ function EnrollmentModal({
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Submit details only (after step 1 - details collection)
+  const submitDetailsOnly = async () => {
+    try {
+      const timestamp = new Date().toISOString();
+      const formattedPrice = `₹${currentPrice.toLocaleString("en-IN")}`;
+      
+      const data = {
+        timestamp: timestamp,
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        planId: planId,
+        planName: planName,
+        planPrice: formattedPrice,
+        paymentGateway: "razorpay",
+        status: "pending",
+        batch: "", // Will be updated in step 2
+        cancelReason: "",
+        country: userCountry || "",
+        pricingRegion: pricingRegion
+      };
+
+      if (GOOGLE_SCRIPT_URL) {
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+        console.log("Details submitted to Google Sheets:", data);
+        setDetailsSubmitted(true);
+      }
+    } catch (error) {
+      console.error("Error submitting details:", error);
+    }
+  };
+
+  // Check for region mismatch
+  const checkRegionMismatch = (): "india-to-global" | "global-to-india" | null => {
+    if (userCountry === "IN" && pricingRegion === "GLOBAL") {
+      return "india-to-global";
+    }
+    if (userCountry !== "IN" && userCountry !== null && pricingRegion === "IN") {
+      return "global-to-india";
+    }
+    return null;
+  };
+
+  // Handle details submission (Step 1)
+  const handleDetailsSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      await submitDetailsOnly();
+      setStep("batch");
+    } catch (error) {
+      console.error("Error submitting details:", error);
+      alert("There was an error. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // Handle batch selection and proceed (Step 2)
+  const handleBatchSubmit = () => {
     if (!formData.batch) {
       alert("Please select a batch time");
       return;
     }
-    setStep("payment");
+
+    // Check for region mismatch
+    const mismatch = checkRegionMismatch();
+    if (mismatch) {
+      setRegionWarningType(mismatch);
+      setStep("regionWarning");
+    } else {
+      setStep("payment");
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleBatchSubmit();
   };
 
   const handleCancel = () => {
@@ -360,103 +450,88 @@ function EnrollmentModal({
         planId: planId,
         planName: planName,
         country: userCountry || "",
-        batch: formData.batch
+        batch: formData.batch,
+        pricingRegion: pricingRegion,
+        price: currentPrice
       }));
 
-      // Razorpay payment links (fallback when API is not available)
-      const paymentLinkMap: Record<number, string> = {
-        1: "https://rzp.io/rzp/DXdIObc", // LLM Foundations
-        2: "https://rzp.io/rzp/rEJZDsc", // Agentic AI Mastery
-        3: "https://rzp.io/rzp/kvOudgi", // Bundle
-      };
-
-      // Try to use API first, fall back to payment links if API is not available
+      // Use Razorpay API only (for proper Meta Pixel tracking)
+      // Payment links don't allow proper conversion tracking
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || "/api/create-order";
       
-      try {
-        const response = await fetch(apiUrl, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            planId,
-            planName,
-            customerName: formData.name,
-            customerEmail: formData.email,
-            customerPhone: formData.phone,
-          }),
-        });
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          planId,
+          planName,
+          customerName: formData.name,
+          customerEmail: formData.email,
+          customerPhone: formData.phone,
+          pricingRegion: pricingRegion, // Pass pricing region to API
+        }),
+      });
 
-        // If API is available and working, use Razorpay Checkout
-        if (response.ok) {
-          const orderData = await response.json();
-          
-          // Load Razorpay script
-          await loadRazorpayScript();
-
-          // Get Razorpay key from order response or use default test key
-          const razorpayKeyId = orderData.keyId || "rzp_test_RnaJg6IBlcJkrk";
-
-          // Initialize Razorpay Checkout
-          const options = {
-            key: razorpayKeyId,
-            amount: orderData.amount,
-            currency: orderData.currency,
-            name: "QuantumRush",
-            description: planName,
-            order_id: orderData.orderId,
-            prefill: {
-              name: formData.name,
-              email: formData.email,
-              contact: formData.phone,
-            },
-            handler: function (response: any) {
-              // Payment successful
-              const successUrl = `/payment/success?razorpay_payment_id=${response.razorpay_payment_id}&razorpay_order_id=${response.razorpay_order_id}&razorpay_signature=${response.razorpay_signature}&planId=${planId}&planName=${encodeURIComponent(planName)}`;
-              window.location.href = successUrl;
-            },
-            modal: {
-              ondismiss: function () {
-                // User closed the checkout
-                setIsSubmitting(false);
-              },
-            },
-            theme: {
-              color: "#9333EA",
-            },
-          };
-
-          const razorpay = new (window as any).Razorpay(options);
-          
-          razorpay.on("payment.failed", function (response: any) {
-            // Payment failed
-            const failureUrl = `/payment/failure?error=${encodeURIComponent(response.error.description || "Payment failed")}`;
-            window.location.href = failureUrl;
-          });
-
-          razorpay.open();
-          return; // Exit early if API checkout succeeds
+      if (!response.ok) {
+        // Get error message from response
+        let errorMessage = "Failed to create order";
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.error || errorData.details || errorMessage;
+        } catch (parseError) {
+          errorMessage = `Server error (${response.status}): ${response.statusText}`;
         }
-      } catch (apiError) {
-        console.log("API not available, falling back to payment links:", apiError);
+        throw new Error(errorMessage);
       }
 
-      // Fallback to payment links (for static sites or when API is unavailable)
-      const paymentUrl = paymentLinkMap[planId];
-      if (paymentUrl) {
-        // Add prefill parameters to payment link
-        const urlWithParams = new URL(paymentUrl);
-        urlWithParams.searchParams.set('prefill[name]', formData.name);
-        urlWithParams.searchParams.set('prefill[email]', formData.email);
-        urlWithParams.searchParams.set('prefill[contact]', formData.phone);
-        
-        setIsSubmitting(false);
-        window.location.href = urlWithParams.toString();
-        return;
-      }
+      const orderData = await response.json();
       
-      throw new Error("Payment option not available for this plan");
+      // Load Razorpay script
+      await loadRazorpayScript();
+
+      // Get Razorpay key from order response or use default test key
+      const razorpayKeyId = orderData.keyId || "rzp_test_RnaJg6IBlcJkrk";
+
+      // Initialize Razorpay Checkout
+      const options = {
+        key: razorpayKeyId,
+        amount: orderData.amount,
+        currency: orderData.currency,
+        name: "QuantumRush",
+        description: planName,
+        order_id: orderData.orderId,
+        prefill: {
+          name: formData.name,
+          email: formData.email,
+          contact: formData.phone,
+        },
+        handler: function (response: any) {
+          // Payment successful - redirect to success page for Meta Pixel tracking
+          const successUrl = `/payment/success?razorpay_payment_id=${response.razorpay_payment_id}&razorpay_order_id=${response.razorpay_order_id}&razorpay_signature=${response.razorpay_signature}&planId=${planId}&planName=${encodeURIComponent(planName)}`;
+          window.location.href = successUrl;
+        },
+        modal: {
+          ondismiss: function () {
+            // User closed the checkout
+            setIsSubmitting(false);
+          },
+        },
+        theme: {
+          color: "#9333EA",
+        },
+      };
+
+      const razorpay = new (window as any).Razorpay(options);
+      
+      razorpay.on("payment.failed", function (response: any) {
+        // Payment failed
+        const failureUrl = `/payment/failure?error=${encodeURIComponent(response.error.description || "Payment failed")}`;
+        window.location.href = failureUrl;
+      });
+
+      razorpay.open();
     } catch (error: any) {
       console.error('Error in handlePayment:', error);
       alert(error.message || "Payment failed. Please try again.");
@@ -472,7 +547,11 @@ function EnrollmentModal({
         <div className="p-6 md:p-8">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              {step === "form" ? "Enroll Now" : "Choose Payment Gateway"}
+              {step === "details" ? "Enroll Now" 
+               : step === "batch" ? "Select Batch Time"
+               : step === "regionWarning" ? "Pricing Region Notice"
+               : step === "payment" ? "Choose Payment Gateway"
+               : "Enroll Now"}
             </h2>
             <button
               onClick={onClose}
@@ -523,7 +602,7 @@ function EnrollmentModal({
               <div className="flex gap-4 pt-4">
                 <button
                   type="button"
-                  onClick={() => setStep("form")}
+                  onClick={() => setStep("batch")}
                   className="flex-1 px-4 py-3 border border-gray-300 rounded-full font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
                 >
                   Back
@@ -538,8 +617,103 @@ function EnrollmentModal({
                 </button>
               </div>
             </div>
-          ) : step === "form" ? (
-            <form onSubmit={handleSubmit} className="space-y-4">
+          ) : step === "regionWarning" ? (
+            <div className="space-y-4">
+              {regionWarningType === "india-to-global" ? (
+                <>
+                  <div className="bg-yellow-50 border-2 border-yellow-400 rounded-lg p-4 mb-4">
+                    <div className="flex items-start gap-3">
+                      <svg className="w-6 h-6 text-yellow-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                      </svg>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-semibold text-yellow-900 mb-2">Warning: Pricing Region Mismatch</h3>
+                        <p className="text-sm text-yellow-800 mb-3">
+                          You have selected <strong>Global Pricing</strong>, but you appear to be from India. 
+                          We recommend selecting <strong>India Pricing</strong> to get the best rates.
+                        </p>
+                        <p className="text-xs text-yellow-700">
+                          <a href="#faq" onClick={() => onClose()} className="underline font-semibold">
+                            Learn more about pricing differences
+                          </a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 pt-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        // Switch to India pricing - we'll need to trigger this from parent
+                        onClose();
+                        window.location.reload(); // Simple reload to reset region
+                      }}
+                      className="flex-1 px-4 py-3 border-2 border-yellow-600 text-yellow-900 rounded-full font-semibold hover:bg-yellow-50 transition-colors"
+                    >
+                      Switch to India Pricing
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setStep("payment")}
+                      className="flex-1 px-4 py-3 bg-gray-900 text-white rounded-full font-semibold hover:bg-gray-800 transition-colors"
+                    >
+                      Proceed Anyway
+                    </button>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setStep("batch")}
+                    className="w-full px-4 py-2 text-sm text-gray-600 hover:text-gray-900"
+                  >
+                    ← Back
+                  </button>
+                </>
+              ) : (
+                <>
+                  <div className="bg-red-50 border-2 border-red-400 rounded-lg p-4 mb-4">
+                    <div className="flex items-start gap-3">
+                      <svg className="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-semibold text-red-900 mb-2">Error: Invalid Pricing Region</h3>
+                        <p className="text-sm text-red-800 mb-3">
+                          You have selected <strong>India Pricing</strong>, but you are not in India. 
+                          Please switch to <strong>Global Pricing</strong> to proceed with your enrollment.
+                        </p>
+                        <p className="text-xs text-red-700">
+                          <a href="#faq" onClick={() => onClose()} className="underline font-semibold">
+                            Learn more about pricing differences
+                          </a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 pt-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        // Switch to Global pricing - we'll need to trigger this from parent
+                        onClose();
+                        window.location.reload(); // Simple reload to reset region
+                      }}
+                      className="flex-1 px-4 py-3 bg-red-600 text-white rounded-full font-semibold hover:bg-red-700 transition-colors"
+                    >
+                      Switch to Global Pricing
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setStep("batch")}
+                      className="flex-1 px-4 py-3 border border-gray-300 text-gray-700 rounded-full font-semibold hover:bg-gray-50 transition-colors"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
+          ) : step === "details" ? (
+            <form onSubmit={handleDetailsSubmit} className="space-y-4">
               {/* Banner for Agentic AI suggesting Bundle */}
               {planId === 2 && (
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
@@ -549,7 +723,6 @@ function EnrollmentModal({
                       type="button"
                       onClick={() => {
                         onClose();
-                        // Trigger enrollment for Bundle (planId 3) after a short delay
                         setTimeout(() => {
                           const event = new CustomEvent('switchToPlan', { detail: { planId: 3 } });
                           window.dispatchEvent(event);
@@ -603,7 +776,19 @@ function EnrollmentModal({
                   placeholder="Enter your phone number"
                 />
               </div>
-
+              
+              <div className="flex gap-4 pt-2">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-gray-900 text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? "Submitting..." : "Continue"}
+                </button>
+              </div>
+            </form>
+          ) : step === "batch" ? (
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Select Batch Time *
@@ -658,10 +843,10 @@ function EnrollmentModal({
                 </button>
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !formData.batch}
                   className="flex-1 bg-gray-900 text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? "Submitting..." : "Continue to Payment"}
+                  {isSubmitting ? "Processing..." : "Proceed to Payment"}
                 </button>
               </div>
             </form>
@@ -679,7 +864,14 @@ function EnrollmentModal({
               
               <div className="flex gap-4 pt-4">
                 <button
-                  onClick={() => setStep("form")}
+                  onClick={() => {
+                    // Check if we came from region warning, if so go back there
+                    if (regionWarningType) {
+                      setStep("regionWarning");
+                    } else {
+                      setStep("batch");
+                    }
+                  }}
                   className="flex-1 px-4 py-3 border border-gray-300 rounded-full font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
                 >
                   Back
@@ -706,13 +898,13 @@ function EnrollmentModal({
 export default function PricingSection() {
   const [selectedPlan, setSelectedPlan] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { region, setRegion, prices, approxUSD } = useRegionalPricing();
   const [userCountry, setUserCountry] = useState<string | null>(null);
 
-  // Detect user's country for currency conversion
+  // Detect user's country for Google Sheets tracking
   useEffect(() => {
     const detectCountry = async () => {
       try {
-        // Using a free IP geolocation service
         const response = await fetch("https://ipapi.co/json/");
         const data = await response.json();
         if (data.country_code) {
@@ -720,13 +912,6 @@ export default function PricingSection() {
         }
       } catch (error) {
         console.error("Error detecting country:", error);
-        // Fallback: try to detect from timezone
-        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        if (timezone.includes("America")) {
-          setUserCountry("US");
-        } else if (timezone.includes("Europe/London")) {
-          setUserCountry("GB");
-        }
       }
     };
     detectCountry();
@@ -771,21 +956,75 @@ export default function PricingSection() {
               <p className="text-base md:text-lg lg:text-base xl:text-lg text-gray-700 max-w-3xl mx-auto">
                 Select the course that best fits your goals and start building AI systems today.
               </p>
+              
+              {/* Regional Pricing Toggle */}
+              <div className="mt-6 flex items-center justify-center gap-4">
+                <span className="text-sm text-gray-600">Pricing Region:</span>
+                <div className="flex gap-2 bg-gray-100 rounded-lg p-1">
+                  <button
+                    onClick={() => setRegion("IN")}
+                    className={`px-4 py-2 rounded-md text-sm font-semibold transition-colors ${
+                      region === "IN"
+                        ? "bg-purple-600 text-white"
+                        : "text-gray-700 hover:bg-gray-200"
+                    }`}
+                  >
+                    India Pricing
+                  </button>
+                  <button
+                    onClick={() => setRegion("GLOBAL")}
+                    className={`px-4 py-2 rounded-md text-sm font-semibold transition-colors ${
+                      region === "GLOBAL"
+                        ? "bg-purple-600 text-white"
+                        : "text-gray-700 hover:bg-gray-200"
+                    }`}
+                  >
+                    Global Pricing
+                  </button>
+                </div>
+              </div>
+              
+              {/* Regional Pricing Note */}
+              <p className="mt-3 text-xs md:text-sm text-gray-600">
+                {region === "IN" 
+                  ? "✓ Special regional pricing applied for India. Your card will be charged in INR."
+                  : "* Regional pricing available for India. Your card will be charged in INR."
+                }
+              </p>
             </div>
 
             {/* Price Cards */}
             <div 
               className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 overflow-x-auto md:overflow-x-visible pb-4 md:pb-0 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
             >
-              {pricingPlans.map((plan) => (
-                <div key={plan.id} className="flex-shrink-0 w-[90vw] max-w-sm md:w-auto snap-center">
-                  <PriceCard
-                    plan={plan}
-                    onEnroll={() => handleEnroll(plan.id)}
-                    userCountry={userCountry}
-                  />
-                </div>
-              ))}
+              {pricingPlans.map((plan) => {
+                // Get price based on plan ID and region
+                let price = 0;
+                let usdPrice = 0;
+                
+                if (plan.id === 1) {
+                  price = prices.llm;
+                  usdPrice = approxUSD.llm;
+                } else if (plan.id === 2) {
+                  price = prices.agentic;
+                  usdPrice = approxUSD.agentic;
+                } else if (plan.id === 3) {
+                  price = prices.bundle;
+                  usdPrice = approxUSD.bundle;
+                }
+                
+                return (
+                  <div key={plan.id} className="flex-shrink-0 w-[90vw] max-w-sm md:w-auto snap-center">
+                    <PriceCard
+                      plan={plan}
+                      onEnroll={() => handleEnroll(plan.id)}
+                      price={price}
+                      approxUSD={usdPrice}
+                      isGlobal={region === "GLOBAL"}
+                    />
+                  </div>
+                );
+              })}
             </div>
 
             {/* Tool Usage Policy Disclaimer */}
@@ -807,15 +1046,25 @@ export default function PricingSection() {
       </div>
 
       {/* Enrollment Modal */}
-      {selectedPlan && (
-        <EnrollmentModal
-          isOpen={isModalOpen}
-          onClose={handleCloseModal}
-          planId={selectedPlan}
-          planName={pricingPlans.find(p => p.id === selectedPlan)?.title || ""}
-          userCountry={userCountry}
-        />
-      )}
+      {selectedPlan && (() => {
+        const plan = pricingPlans.find(p => p.id === selectedPlan);
+        let currentPrice = 0;
+        if (selectedPlan === 1) currentPrice = prices.llm;
+        else if (selectedPlan === 2) currentPrice = prices.agentic;
+        else if (selectedPlan === 3) currentPrice = prices.bundle;
+        
+        return (
+          <EnrollmentModal
+            isOpen={isModalOpen}
+            onClose={handleCloseModal}
+            planId={selectedPlan}
+            planName={plan?.title || ""}
+            userCountry={userCountry}
+            pricingRegion={region}
+            currentPrice={currentPrice}
+          />
+        );
+      })()}
     </>
   );
 }
