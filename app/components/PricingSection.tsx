@@ -214,6 +214,23 @@ function EnrollmentModal({
     setStep("payment");
   };
 
+  const loadRazorpayScript = (): Promise<void> => {
+    return new Promise((resolve) => {
+      if ((window as any).Razorpay) {
+        resolve();
+        return;
+      }
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.onload = () => resolve();
+      script.onerror = () => {
+        console.error("Failed to load Razorpay script");
+        resolve(); // Resolve anyway to prevent hanging
+      };
+      document.body.appendChild(script);
+    });
+  };
+
   const handlePayment = async () => {
     setIsSubmitting(true);
 
@@ -222,12 +239,12 @@ function EnrollmentModal({
       await submitToGoogleSheets();
 
       // Fire Meta Pixel Lead event
-    if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
-      (window as any).fbq("track", "Lead", {
-        planId: planId,
-        planName: planName
-      });
-    }
+      if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
+        (window as any).fbq("track", "Lead", {
+          planId: planId,
+          planName: planName
+        });
+      }
 
       // Store customer data in localStorage for reference
       localStorage.setItem('customerData', JSON.stringify({
@@ -238,33 +255,75 @@ function EnrollmentModal({
         planName: planName
       }));
 
-      const gatewayMap: Record<string, string> = {
-        "1-razorpay": "https://rzp.io/rzp/DXdIObc", // LLM Foundations
-        "2-razorpay": "https://rzp.io/rzp/rEJZDsc", // Agentic AI Mastery
-        "3-razorpay": "https://rzp.io/rzp/kvOudgi"  // Bundle
-      };
-      
-      const paymentKey = `${planId}-razorpay`;
-      const paymentUrl = gatewayMap[paymentKey];
-      
-      if (!paymentUrl) {
-        console.error('Payment URL not found for plan:', planId);
-        setIsSubmitting(false);
-        return;
+      // Load Razorpay script
+      await loadRazorpayScript();
+
+      // Create order via API
+      const response = await fetch("/api/create-order", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          planId,
+          planName,
+          customerName: formData.name,
+          customerEmail: formData.email,
+          customerPhone: formData.phone,
+        }),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || "Failed to create order");
       }
+
+      const orderData = await response.json();
+
+      // Get Razorpay key from order response or use default test key
+      const razorpayKeyId = orderData.keyId || "rzp_test_RnaJg6IBlcJkrk";
+
+      // Initialize Razorpay Checkout
+      const options = {
+        key: razorpayKeyId,
+        amount: orderData.amount,
+        currency: orderData.currency,
+        name: "QuantumRush",
+        description: planName,
+        order_id: orderData.orderId,
+        prefill: {
+          name: formData.name,
+          email: formData.email,
+          contact: formData.phone,
+        },
+        handler: function (response: any) {
+          // Payment successful
+          const successUrl = `/payment/success?razorpay_payment_id=${response.razorpay_payment_id}&razorpay_order_id=${response.razorpay_order_id}&razorpay_signature=${response.razorpay_signature}&planId=${planId}&planName=${encodeURIComponent(planName)}`;
+          window.location.href = successUrl;
+        },
+        modal: {
+          ondismiss: function () {
+            // User closed the checkout
+            setIsSubmitting(false);
+          },
+        },
+        theme: {
+          color: "#9333EA",
+        },
+      };
+
+      const razorpay = new (window as any).Razorpay(options);
       
-      // Add customer data as URL parameters for Razorpay
-      const urlWithParams = new URL(paymentUrl);
-      urlWithParams.searchParams.set('prefill[name]', formData.name);
-      urlWithParams.searchParams.set('prefill[email]', formData.email);
-      urlWithParams.searchParams.set('prefill[contact]', formData.phone);
-      
-      console.log('Redirecting to:', urlWithParams.toString());
-      
-      // Redirect to Razorpay with pre-filled customer data
-      window.location.href = urlWithParams.toString();
-    } catch (error) {
+      razorpay.on("payment.failed", function (response: any) {
+        // Payment failed
+        const failureUrl = `/payment/failure?error=${encodeURIComponent(response.error.description || "Payment failed")}`;
+        window.location.href = failureUrl;
+      });
+
+      razorpay.open();
+    } catch (error: any) {
       console.error('Error in handlePayment:', error);
+      alert(error.message || "Payment failed. Please try again.");
       setIsSubmitting(false);
     }
   };
