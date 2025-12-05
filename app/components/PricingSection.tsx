@@ -363,88 +363,100 @@ function EnrollmentModal({
         batch: formData.batch
       }));
 
-      // Load Razorpay script
-      await loadRazorpayScript();
-
-      // Create order via API
-      // Use environment variable for API URL, fallback to relative path for local dev
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "/api/create-order";
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          planId,
-          planName,
-          customerName: formData.name,
-          customerEmail: formData.email,
-          customerPhone: formData.phone,
-        }),
-      });
-
-      if (!response.ok) {
-        // Try to get error message from response
-        let errorMessage = "Failed to create order";
-        try {
-          const errorData = await response.json();
-          errorMessage = errorData.error || errorData.details || errorMessage;
-        } catch (parseError) {
-          // If response is not JSON, get text
-          try {
-            const text = await response.text();
-            console.error("Non-JSON response from API:", text);
-            errorMessage = `Server error (${response.status}): ${response.statusText}`;
-          } catch (textError) {
-            errorMessage = `Server error (${response.status}): ${response.statusText}`;
-          }
-        }
-        throw new Error(errorMessage);
-      }
-
-      const orderData = await response.json();
-
-      // Get Razorpay key from order response or use default test key
-      const razorpayKeyId = orderData.keyId || "rzp_test_RnaJg6IBlcJkrk";
-
-      // Initialize Razorpay Checkout
-      const options = {
-        key: razorpayKeyId,
-        amount: orderData.amount,
-        currency: orderData.currency,
-        name: "QuantumRush",
-        description: planName,
-        order_id: orderData.orderId,
-        prefill: {
-          name: formData.name,
-          email: formData.email,
-          contact: formData.phone,
-        },
-        handler: function (response: any) {
-          // Payment successful
-          const successUrl = `/payment/success?razorpay_payment_id=${response.razorpay_payment_id}&razorpay_order_id=${response.razorpay_order_id}&razorpay_signature=${response.razorpay_signature}&planId=${planId}&planName=${encodeURIComponent(planName)}`;
-          window.location.href = successUrl;
-        },
-        modal: {
-          ondismiss: function () {
-            // User closed the checkout
-            setIsSubmitting(false);
-          },
-        },
-        theme: {
-          color: "#9333EA",
-        },
+      // Razorpay payment links (fallback when API is not available)
+      const paymentLinkMap: Record<number, string> = {
+        1: "https://rzp.io/rzp/DXdIObc", // LLM Foundations
+        2: "https://rzp.io/rzp/rEJZDsc", // Agentic AI Mastery
+        3: "https://rzp.io/rzp/kvOudgi", // Bundle
       };
 
-      const razorpay = new (window as any).Razorpay(options);
+      // Try to use API first, fall back to payment links if API is not available
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "/api/create-order";
       
-      razorpay.on("payment.failed", function (response: any) {
-        // Payment failed
-        const failureUrl = `/payment/failure?error=${encodeURIComponent(response.error.description || "Payment failed")}`;
-        window.location.href = failureUrl;
-      });
+      try {
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            planId,
+            planName,
+            customerName: formData.name,
+            customerEmail: formData.email,
+            customerPhone: formData.phone,
+          }),
+        });
 
-      razorpay.open();
+        // If API is available and working, use Razorpay Checkout
+        if (response.ok) {
+          const orderData = await response.json();
+          
+          // Load Razorpay script
+          await loadRazorpayScript();
+
+          // Get Razorpay key from order response or use default test key
+          const razorpayKeyId = orderData.keyId || "rzp_test_RnaJg6IBlcJkrk";
+
+          // Initialize Razorpay Checkout
+          const options = {
+            key: razorpayKeyId,
+            amount: orderData.amount,
+            currency: orderData.currency,
+            name: "QuantumRush",
+            description: planName,
+            order_id: orderData.orderId,
+            prefill: {
+              name: formData.name,
+              email: formData.email,
+              contact: formData.phone,
+            },
+            handler: function (response: any) {
+              // Payment successful
+              const successUrl = `/payment/success?razorpay_payment_id=${response.razorpay_payment_id}&razorpay_order_id=${response.razorpay_order_id}&razorpay_signature=${response.razorpay_signature}&planId=${planId}&planName=${encodeURIComponent(planName)}`;
+              window.location.href = successUrl;
+            },
+            modal: {
+              ondismiss: function () {
+                // User closed the checkout
+                setIsSubmitting(false);
+              },
+            },
+            theme: {
+              color: "#9333EA",
+            },
+          };
+
+          const razorpay = new (window as any).Razorpay(options);
+          
+          razorpay.on("payment.failed", function (response: any) {
+            // Payment failed
+            const failureUrl = `/payment/failure?error=${encodeURIComponent(response.error.description || "Payment failed")}`;
+            window.location.href = failureUrl;
+          });
+
+          razorpay.open();
+          return; // Exit early if API checkout succeeds
+        }
+      } catch (apiError) {
+        console.log("API not available, falling back to payment links:", apiError);
+      }
+
+      // Fallback to payment links (for static sites or when API is unavailable)
+      const paymentUrl = paymentLinkMap[planId];
+      if (paymentUrl) {
+        // Add prefill parameters to payment link
+        const urlWithParams = new URL(paymentUrl);
+        urlWithParams.searchParams.set('prefill[name]', formData.name);
+        urlWithParams.searchParams.set('prefill[email]', formData.email);
+        urlWithParams.searchParams.set('prefill[contact]', formData.phone);
+        
+        setIsSubmitting(false);
+        window.location.href = urlWithParams.toString();
+        return;
+      }
+      
+      throw new Error("Payment option not available for this plan");
     } catch (error: any) {
       console.error('Error in handlePayment:', error);
       alert(error.message || "Payment failed. Please try again.");

@@ -1,12 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export', // Required for static site deployment on Digital Ocean
-  // Use default 'out' directory for static export (Digital Ocean expects this)
-  // distDir: 'dist', // Commented out to use default 'out' directory
-  trailingSlash: true, // Ensure trailing slashes for static export
+  // Removed 'output: export' to enable API routes and server-side features
+  // This allows the app to run as a Node.js web application
   images: {
-    unoptimized: true, // Required for static export
+    unoptimized: true, // Keep unoptimized for Digital Ocean compatibility
   },
 };
 
