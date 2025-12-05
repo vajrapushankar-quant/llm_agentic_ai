@@ -1,11 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Removed 'output: export' to enable API routes
-  // API routes require a Node.js server, not static export
-  distDir: 'dist',
+  output: 'export', // Required for static site deployment on Digital Ocean
+  // Use default 'out' directory for static export (Digital Ocean expects this)
+  // distDir: 'dist', // Commented out to use default 'out' directory
+  trailingSlash: true, // Ensure trailing slashes for static export
   images: {
-    unoptimized: true,
+    unoptimized: true, // Required for static export
   },
 };
 

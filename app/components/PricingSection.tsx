@@ -367,7 +367,9 @@ function EnrollmentModal({
       await loadRazorpayScript();
 
       // Create order via API
-      const response = await fetch("/api/create-order", {
+      // Use environment variable for API URL, fallback to relative path for local dev
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "/api/create-order";
+      const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
