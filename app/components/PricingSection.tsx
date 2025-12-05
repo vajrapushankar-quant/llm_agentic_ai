@@ -356,6 +356,16 @@ function EnrollmentModal({
     setIsSubmitting(true);
     try {
       await submitDetailsOnly();
+      
+      // Fire Meta Pixel Lead event after details are filled
+      if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
+        (window as any).fbq("track", "Lead", {
+          planId: planId,
+          planName: planName,
+          content_name: planName,
+        });
+      }
+      
       setStep("batch");
     } catch (error) {
       console.error("Error submitting details:", error);
@@ -434,11 +444,13 @@ function EnrollmentModal({
       // Submit to Google Sheets before redirecting
       await submitToGoogleSheets("pending");
 
-      // Fire Meta Pixel Lead event
+      // Fire Meta Pixel InitiateCheckout event when proceeding to payment
       if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
-        (window as any).fbq("track", "Lead", {
-          planId: planId,
-          planName: planName
+        (window as any).fbq("track", "InitiateCheckout", {
+          content_name: planName,
+          content_ids: [planId.toString()],
+          value: currentPrice,
+          currency: "INR",
         });
       }
 

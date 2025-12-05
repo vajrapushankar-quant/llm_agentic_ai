@@ -93,13 +93,14 @@ function PaymentSuccessContent() {
           value: amount,
           currency: "INR",
         });
-      }
 
-      // Also track Lead conversion
-      if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
-        (window as any).fbq("track", "Lead", {
-          planId: planId,
-          planName: planName,
+        // Also track CompleteRegistration event
+        (window as any).fbq("track", "CompleteRegistration", {
+          content_name: planName,
+          content_ids: [planId],
+          value: amount,
+          currency: "INR",
+          status: true,
         });
       }
 
